@@ -45,12 +45,14 @@ const Header = () => {
           </a>
         </div>
         <div className='flex items-center gap-4'>
-          <button className='border-[2px] tablet:hidden border-[#BEBEBE] h-[57px] tablet:h-[71px] w-[99px] rounded-[60px] font-semibold text-[#000] text-[20px]'>
+          {/* <button className='border-[2px] tablet:hidden border-[#BEBEBE] h-[57px] tablet:h-[71px] w-[99px] rounded-[60px] font-semibold text-[#000] text-[20px]'>
             RU
-          </button>
-          <button className='border-[2px] tablet:hidden bg-black text-white border-[#6C6C6C] h-[57px] w-[185px] rounded-[60px] font-semibold text-[20px]'>
-            {t("contacts")}
-          </button>
+          </button> */}
+          <a href='#contacts'>
+            <button className='border-[2px] tablet:hidden bg-black text-white border-[#6C6C6C] h-[57px] w-[185px] rounded-[60px] font-semibold text-[20px]'>
+              {t("contacts")}
+            </button>
+          </a>
           <Burger />
         </div>
       </div>

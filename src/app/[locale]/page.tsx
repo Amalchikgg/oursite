@@ -76,7 +76,7 @@ export default function Home() {
           <span className='font-bold'>{t("contactUs")}</span>
           <span>{t("weText2")}</span>
         </p>
-        <div className='flex gap-6 mobile:gap-8 mb-[130px] mobile:mb-20 tablet:flex-col'>
+        <div className='flex gap-6 mobile:gap-8 mb-[130px] desktop:mb-[92px] mobile:mb-10 tablet:flex-col'>
           {cases.map((data, i) => (
             <Case
               key={data.title}
@@ -89,11 +89,11 @@ export default function Home() {
             />
           ))}
         </div>
-        <div className='flex justify-center mb-[130px] desktop:mb-[92px] mobile:mb-10'>
+        {/* <div className='flex justify-center mb-[130px] desktop:mb-[92px] mobile:mb-10'>
           <button className='text-start w-[292px] h-[57px] border-[2px] rounded-[60px] border-[#6C6C6C] pl-[27px] text-[24px] font-medium leading-[28.64px] text-black'>
             {t("moreWorks")}
           </button>
-        </div>
+        </div> */}
         <section>
           <p
             id='services'
