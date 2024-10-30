@@ -14,21 +14,21 @@ const Magenta = () => {
       </p>
       <div className='relative mb-[62px] mobile:mb-5'>
         <Image
-          src={"/assets/icons/magentaBunner.svg"}
+          src={"/assets/icons/magentaBunner.jpg"}
           alt='eats'
           width={1872}
           height={616}
           className='desktop:hidden'
         />
         <Image
-          src={"/assets/icons/magentaDesktop.svg"}
+          src={"/assets/icons/magentaDesktop.jpg"}
           alt='eats'
           width={1392}
           height={616}
           className='desktop:block hidden mobile:hidden'
         />
         <Image
-          src={"/assets/icons/magentaMobileBunner.svg"}
+          src={"/assets/icons/magentaMobileBunner.jpg"}
           alt='eats'
           width={343}
           height={285}
@@ -51,14 +51,14 @@ const Magenta = () => {
         ))}
       </div>
       <Image
-        src={"/assets/icons/magentaCase1.svg"}
+        src={"/assets/icons/magentaCase1.jpg"}
         alt='magentaCase'
         width={1872}
         height={1101}
         className='desktop:w-[1392px] tablet:hidden'
       />
       <Image
-        src={"/assets/icons/magentaCaseTablet1.svg"}
+        src={"/assets/icons/magentaCaseTablet1.jpg"}
         alt='magentaCase'
         width={720}
         height={484}
@@ -66,42 +66,42 @@ const Magenta = () => {
       />
       <div className='flex items-center gap-5 my-5 mobile:gap-3'>
         <Image
-          src={"/assets/icons/magentaCase2.svg"}
+          src={"/assets/icons/magentaCase2.jpg"}
           alt='magentaCase'
           width={924}
           height={1101}
           className='desktop:hidden'
         />
         <Image
-          src={"/assets/icons/magentaCase3.svg"}
+          src={"/assets/icons/magentaCase3.jpg"}
           alt='magentaCase'
           width={684}
           height={1101}
           className='desktop:hidden'
         />
         <Image
-          src={"/assets/icons/magentaCaseDesktop2.svg"}
+          src={"/assets/icons/magentaCaseDesktop2.jpg"}
           alt='magentaCase'
           width={924}
           height={1101}
           className='desktop:block hidden tablet:hidden'
         />
         <Image
-          src={"/assets/icons/magentaCaseDesktop3.svg"}
+          src={"/assets/icons/magentaCaseDesktop3.jpg"}
           alt='magentaCase'
           width={684}
           height={1101}
           className='desktop:block hidden tablet:hidden'
         />
         <Image
-          src={"/assets/icons/magentaCaseTablet2.svg"}
+          src={"/assets/icons/magentaCaseTablet2.jpg"}
           alt='magentaCase'
           width={348}
           height={449}
           className=' hidden tablet:block mobile:w-[164px] mobile:rounded-[30px] mobile:border-[1px] mobile:border-[#E3E3E3]'
         />
         <Image
-          src={"/assets/icons/magentaCaseTablet3.svg"}
+          src={"/assets/icons/magentaCaseTablet3.jpg"}
           alt='magentaCase'
           width={348}
           height={449}
@@ -109,14 +109,14 @@ const Magenta = () => {
         />
       </div>
       <Image
-        src={"/assets/icons/magentaCase4.svg"}
+        src={"/assets/icons/magentaCase4.jpg"}
         alt='magentaCase'
         width={1872}
         height={1101}
         className='mb-10 desktop:hidden '
       />
       <Image
-        src={"/assets/icons/magentaCaseDesktop4.svg"}
+        src={"/assets/icons/magentaCaseDesktop4.jpg"}
         alt='magentaCase'
         width={1392}
         height={934}
@@ -124,14 +124,14 @@ const Magenta = () => {
       />
       <div className='flex items-center gap-5 mb-5'>
         <Image
-          src={"/assets/icons/magentaCase5.svg"}
+          src={"/assets/icons/magentaCase5.jpg"}
           alt='magentaCase'
           width={928}
           height={612}
           className='desktop:w-[690px] tablet:w-[348px] mobile:hidden'
         />
         <Image
-          src={"/assets/icons/magentaCaseMobile5.svg"}
+          src={"/assets/icons/magentaCaseMobile5.jpg"}
           alt='magentaCase'
           width={164}
           height={260}
@@ -139,28 +139,28 @@ const Magenta = () => {
         />
         <div>
           <Image
-            src={"/assets/icons/magentaCase6.svg"}
+            src={"/assets/icons/magentaCase6.jpg"}
             alt='magentaCase'
             width={928}
             height={612}
             className='mb-4 tablet:w-[348px] mobile:hidden'
           />
           <Image
-            src={"/assets/icons/magentaCase7.svg"}
+            src={"/assets/icons/magentaCase7.jpg"}
             alt='magentaCase'
             width={928}
             height={453}
             className='tablet:w-[348px] mobile:hidden'
           />
           <Image
-            src={"/assets/icons/magentaCaseMobile6.svg"}
+            src={"/assets/icons/magentaCaseMobile6.jpg"}
             alt='magentaCase'
             width={164}
             height={120}
             className='mb-4 hidden mobile:block'
           />
           <Image
-            src={"/assets/icons/magentaCaseMobile7.svg"}
+            src={"/assets/icons/magentaCaseMobile7.jpg"}
             alt='magentaCase'
             width={164}
             height={120}
@@ -169,14 +169,14 @@ const Magenta = () => {
         </div>
       </div>
       <Image
-        src={"/assets/icons/magentaCase8.svg"}
+        src={"/assets/icons/magentaCase8.jpg"}
         alt='magentaCase'
         width={1872}
         height={1101}
         className='mb-[170px] desktop:hidden'
       />
       <Image
-        src={"/assets/icons/magentaCaseDesktop8.svg"}
+        src={"/assets/icons/magentaCaseDesktop8.jpg"}
         alt='magentaCase'
         width={1392}
         height={1101}

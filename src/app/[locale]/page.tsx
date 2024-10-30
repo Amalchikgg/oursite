@@ -45,7 +45,7 @@ export default function Home() {
         <div className='flex tablet:flex-col items-center gap-6 tablet:gap-8 pb-[130px] mb-20 desktop:mb-[72px] tablet:mb-[49px] mobile:mb-8 border-b-[1px] tablet:border-none tablet:pb-0 border-[#CFCFCF]'>
           <div className='relative w-[924px] tablet:w-full mobile:h-[427px] h-[770px] desktop:w-[684px] desktop:h-[704px] tablet:h-[770px] rounded-[30px]'>
             <Image
-              src={"/assets/icons/uiux.svg"}
+              src={"/assets/icons/uiux.jpg"}
               alt='uiux'
               width={924}
               height={770}
@@ -57,7 +57,7 @@ export default function Home() {
           </div>
           <div className='relative w-[924px] h-[770px] mobile:h-[427px] tablet:w-full desktop:w-[684px] desktop:h-[704px] tablet:h-[770px] rounded-[30px]'>
             <Image
-              src={"/assets/icons/development.svg"}
+              src={"/assets/icons/development.jpg"}
               alt='development'
               width={924}
               height={770}
@@ -127,14 +127,14 @@ export default function Home() {
                 designer. Based in Tashkent, Uzbekistan.
               </p>
               <Image
-                src={"/assets/icons/person.svg"}
+                src={"/assets/icons/person.jpg"}
                 alt='person'
                 width={450}
                 height={450}
                 className='tablet:hidden'
               />
               <Image
-                src={"/assets/icons/photoTablet.svg"}
+                src={"/assets/icons/photoTablet.jpg"}
                 alt='person'
                 width={720}
                 height={255}
@@ -160,14 +160,14 @@ export default function Home() {
                 designer. Based in Tashkent, Uzbekistan.
               </p>
               <Image
-                src={"/assets/icons/person.svg"}
+                src={"/assets/icons/person.jpg"}
                 alt='person'
                 width={450}
                 height={450}
                 className='tablet:hidden'
               />
               <Image
-                src={"/assets/icons/photoTablet.svg"}
+                src={"/assets/icons/photoTablet.jpg"}
                 alt='person'
                 width={720}
                 height={255}

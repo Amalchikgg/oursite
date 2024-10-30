@@ -17,21 +17,21 @@ const Case = ({ image, icon, title, titleColor, text, link }: Props) => {
     >
       <div className='relative w-[608px] h-[425px] mb-7 desktop:w-[448px] desktop:h-[321px] tablet:w-full'>
         <Image
-          src={`/assets/icons/${image.desktop}.svg`}
+          src={`/assets/icons/${image.desktop}.jpg`}
           alt='image'
           width={608}
           height={425}
           className='desktop:w-[448px] desktop:h-[321px] tablet:hidden'
         />
         <Image
-          src={`/assets/icons/${image.tablet}.svg`}
+          src={`/assets/icons/${image.tablet}.jpg`}
           alt='image'
           width={720}
           height={321}
           className='tablet:block hidden mobile:hidden'
         />
         <Image
-          src={`/assets/icons/${image.mobile}.svg`}
+          src={`/assets/icons/${image.mobile}.jpg`}
           alt='image'
           width={343}
           height={321}
