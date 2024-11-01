@@ -177,7 +177,7 @@ const AboutUs = () => {
         </div>
         <p
           ref={secondTextRef}
-          className='text-[#1D1D1D] text-[48px] desktop:text-[40px] w-[826px] tablet:w-full mb-20 tablet:mb-0 font-medium leading-[57.61px]'
+          className='text-[#1D1D1D] text-[48px] desktop:text-[40px] mobile:text-[36px] mobile:leading-normal w-[826px] tablet:w-full mb-20 tablet:mb-0 font-medium leading-[57.61px]'
         >
           Lorem ipsum dolor sit amet consectetur. Hendrerit cursus pellentesque
           lectus vivamus. Ante neque consectetur nisl mi in rhoncus et posuere
@@ -199,7 +199,7 @@ const AboutUs = () => {
         <div className='tablet:flex tablet:flex-col-reverse tablet:gap-6 tablet:mb-6'>
           <p
             ref={thirdTextRef}
-            className='text-[#1D1D1D] text-[48px] w-[760px] tablet:w-full mb-20 tablet:mb-0 font-medium leading-[57.61px]'
+            className='text-[#1D1D1D] tablet:text-[40px] text-[48px] tablet:leading-none w-[760px] tablet:w-full mb-20 tablet:mb-0 font-medium leading-[57.61px]'
           >
             Hello I&apos;m Amal — your freelance digital UX/UI and product
             designer. Based in Tashkent, Uzbekistan.
@@ -223,7 +223,7 @@ const AboutUs = () => {
         </div>
         <p
           ref={fourthTextRef}
-          className='text-[#1D1D1D] text-[48px] desktop:text-[40px] w-[826px] tablet:w-full mb-20 tablet:mb-0 font-medium leading-[57.61px]'
+          className='text-[#1D1D1D] text-[48px] desktop:text-[40px] mobile:text-[36px] mobile:leading-normal w-[826px] tablet:w-full mb-20 tablet:mb-0 font-medium leading-[57.61px]'
         >
           Lorem ipsum dolor sit amet consectetur. Hendrerit cursus pellentesque
           lectus vivamus. Ante neque consectetur nisl mi in rhoncus et posuere

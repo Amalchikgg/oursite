@@ -22,7 +22,15 @@ const Service = ({ title, last }: Props) => {
 
     const chars = text.split("").map((char) => {
       const span = document.createElement("span");
-      span.textContent = char;
+      if (char === " ") {
+        // Для пробела создаем special span с фиксированной шириной
+        span.innerHTML = "&nbsp;";
+        span.style.display = "inline-block";
+        span.style.width = "0.3em"; // Можно настроить ширину пробела
+      } else {
+        span.textContent = char;
+        span.style.display = "inline-block";
+      }
       span.style.display = "inline-block";
       span.style.opacity = "0";
       span.style.transform = "translateY(100%)";
