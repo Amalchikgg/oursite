@@ -1,3 +1,6 @@
+"use client";
+import { useAnimation } from "@/hooks/useAnimation";
+
 interface Props {
   title: string;
   type: string;

@@ -1,6 +1,7 @@
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
+import FormModal from "../FormModal";
 
 const Footer = () => {
   const t = useTranslations("Index");
@@ -11,23 +12,10 @@ const Footer = () => {
           {t("startNow")}
         </p>
         <div className='flex items-center gap-[25px] mobile:flex-col'>
+          <FormModal className='w-[292px] h-[57px] rounded-[60px] bg-white flex items-center pl-[27px] border-[2px] border-[#6C6C6C]' />
           <Link
             href={"#" as never}
-            className='w-[292px] h-[57px] rounded-[60px] bg-white flex items-center pl-[27px] gap-2.5 border-[2px] border-[#6C6C6C]'
-          >
-            <p className='text-[24px] text-black leading-[28.64px] font-medium'>
-              {t("writeUs")}
-            </p>
-            <Image
-              src={"/assets/icons/arrow.svg"}
-              alt='arrow'
-              width={32}
-              height={1}
-            />
-          </Link>
-          <Link
-            href={"#" as never}
-            className='w-[292px] h-[57px] rounded-[60px] bg-white flex items-center pl-[27px] border-[2px] border-[#6C6C6C]'
+            className='w-[292px] h-[57px] rounded-[60px] hover:scale-[1.03] hover:border-black transition-all duration-300 bg-white flex items-center pl-[27px] border-[2px] border-[#6C6C6C]'
           >
             <p className='text-[24px] text-black leading-[28.64px] font-medium'>
               {t("copyMail")}

@@ -1,18 +1,35 @@
+"use client";
 import Contacts from "@/components/Contacts";
 import Container from "@/components/Container";
 import Tag from "@/components/Tag";
 import { magentaCase } from "@/constants/mockData";
+import { useAnimation } from "@/hooks/useAnimation";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 
 const Magenta = () => {
   const t = useTranslations("Index");
+  const { addToRefs, headerRef, textContentRef, textRef } = useAnimation();
+
+  const textLines = t("magentaText")
+    .split(" ")
+    .map((word, i) => (
+      <div key={i} className='inline-block mr-[10px]'>
+        {word}
+      </div>
+    ));
   return (
     <Container>
-      <p className='font-bold text-[92px] text-black my-[62px] tablet:text-[62px] mobile:text-[48px] mobile:mb-5 mobile:mt-5'>
+      <p
+        ref={headerRef}
+        className='font-bold text-[92px] text-black my-[62px] tablet:text-[62px] mobile:text-[48px] mobile:mb-5 mobile:mt-5'
+      >
         Magenta Highway
       </p>
-      <div className='relative mb-[62px] mobile:mb-5'>
+      <div
+        ref={(el) => addToRefs(el, 0)}
+        className='relative mb-[62px] mobile:mb-5'
+      >
         <Image
           src={"/assets/icons/magentaBunner.jpg"}
           alt='eats'
@@ -42,29 +59,41 @@ const Magenta = () => {
           className='absolute top-[224px]  right-[697.5px] desktop:right-[450px] tablet:w-[326px] mobile:w-[201px] tablet:right-[200px] mobile:right-[65px] tablet:top-[100px]'
         />
       </div>
-      <p className='font-medium text-[52px] tablet:text-[48px] text-[#3F3F3F] mb-[62px] mobile:mb-[34px] mobile:text-[24px]'>
-        {t("magentaText")}
-      </p>
-      <div className='gap-5 mobile:gap-x-4 mobile:gap-y-3 flex items-center flex-wrap mb-20 mobile:mb-10'>
+      <div
+        ref={textRef}
+        className='relative font-medium text-[52px] tablet:text-[48px] mobile:text-[24px] text-[#3F3F3F] mb-[62px] mobile:mb-5'
+      >
+        <div ref={textContentRef} className='relative'>
+          {textLines}
+        </div>
+      </div>
+      <div className='tag-container gap-5 mobile:gap-x-4 mobile:gap-y-3 flex items-center flex-wrap mb-20 mobile:mb-10'>
         {magentaCase.map((data, i) => (
-          <Tag key={data.title} title={data.title} type={data.type} />
+          <div key={data.title} className='tag-item'>
+            <Tag title={data.title} type={data.type} />
+          </div>
         ))}
       </div>
-      <Image
-        src={"/assets/icons/magentaCase1.jpg"}
-        alt='magentaCase'
-        width={1872}
-        height={1101}
-        className='desktop:w-[1392px] tablet:hidden'
-      />
-      <Image
-        src={"/assets/icons/magentaCaseTablet1.jpg"}
-        alt='magentaCase'
-        width={720}
-        height={484}
-        className='hidden tablet:block mobile:rounded-[30px] mobile:border-[1px] mobile:border-[#E3E3E3]'
-      />
-      <div className='flex items-center gap-5 my-5 mobile:gap-3'>
+      <div ref={(el) => addToRefs(el, 1)}>
+        <Image
+          src={"/assets/icons/magentaCase1.jpg"}
+          alt='magentaCase'
+          width={1872}
+          height={1101}
+          className='desktop:w-[1392px] tablet:hidden'
+        />
+        <Image
+          src={"/assets/icons/magentaCaseTablet1.jpg"}
+          alt='magentaCase'
+          width={720}
+          height={484}
+          className='hidden tablet:block mobile:rounded-[30px] mobile:border-[1px] mobile:border-[#E3E3E3]'
+        />
+      </div>
+      <div
+        className='flex items-center gap-5 my-5 mobile:gap-3'
+        ref={(el) => addToRefs(el, 2)}
+      >
         <Image
           src={"/assets/icons/magentaCase2.jpg"}
           alt='magentaCase'
@@ -82,7 +111,7 @@ const Magenta = () => {
         <Image
           src={"/assets/icons/magentaCaseDesktop2.jpg"}
           alt='magentaCase'
-          width={924}
+          width={684}
           height={1101}
           className='desktop:block hidden tablet:hidden'
         />
@@ -108,21 +137,26 @@ const Magenta = () => {
           className=' hidden tablet:block mobile:w-[164px] mobile:rounded-[30px] mobile:border-[1px] mobile:border-[#E3E3E3]'
         />
       </div>
-      <Image
-        src={"/assets/icons/magentaCase4.jpg"}
-        alt='magentaCase'
-        width={1872}
-        height={1101}
-        className='mb-10 desktop:hidden '
-      />
-      <Image
-        src={"/assets/icons/magentaCaseDesktop4.jpg"}
-        alt='magentaCase'
-        width={1392}
-        height={934}
-        className='mb-10 mobile:mb-5 desktop:block hidden tablet:w-[715px] mobile:rounded-[30px] mobile:border-[1px] mobile:border-[#E3E3E3]'
-      />
-      <div className='flex items-center gap-5 mb-5'>
+      <div ref={(el) => addToRefs(el, 3)}>
+        <Image
+          src={"/assets/icons/magentaCase4.jpg"}
+          alt='magentaCase'
+          width={1872}
+          height={1101}
+          className='mb-10 desktop:hidden '
+        />
+        <Image
+          src={"/assets/icons/magentaCaseDesktop4.jpg"}
+          alt='magentaCase'
+          width={1392}
+          height={934}
+          className='mb-10 mobile:mb-5 desktop:block hidden tablet:w-[715px] mobile:rounded-[30px] mobile:border-[1px] mobile:border-[#E3E3E3]'
+        />
+      </div>
+      <div
+        className='flex items-center gap-5 mb-5'
+        ref={(el) => addToRefs(el, 4)}
+      >
         <Image
           src={"/assets/icons/magentaCase5.jpg"}
           alt='magentaCase'
@@ -137,13 +171,13 @@ const Magenta = () => {
           height={260}
           className='hidden mobile:block'
         />
-        <div>
+        <div className='flex flex-col'>
           <Image
             src={"/assets/icons/magentaCase6.jpg"}
             alt='magentaCase'
             width={928}
             height={612}
-            className='mb-4 tablet:w-[348px] mobile:hidden'
+            className='mb-4 tablet:w-[348px] mobile:hidden flex-shrink-0'
           />
           <Image
             src={"/assets/icons/magentaCase7.jpg"}
@@ -168,20 +202,22 @@ const Magenta = () => {
           />
         </div>
       </div>
-      <Image
-        src={"/assets/icons/magentaCase8.jpg"}
-        alt='magentaCase'
-        width={1872}
-        height={1101}
-        className='mb-[170px] desktop:hidden'
-      />
-      <Image
-        src={"/assets/icons/magentaCaseDesktop8.jpg"}
-        alt='magentaCase'
-        width={1392}
-        height={1101}
-        className='mb-[170px] hidden desktop:block desktop:mb-[160px] mobile:mb-20 mobile:rounded-[30px] mobile:border-[1px] mobile:border-[#E3E3E3]'
-      />
+      <div ref={(el) => addToRefs(el, 6)}>
+        <Image
+          src={"/assets/icons/magentaCase8.jpg"}
+          alt='magentaCase'
+          width={1872}
+          height={1101}
+          className='mb-[170px] desktop:hidden'
+        />
+        <Image
+          src={"/assets/icons/magentaCaseDesktop8.jpg"}
+          alt='magentaCase'
+          width={1392}
+          height={1101}
+          className='mb-[170px] hidden desktop:block desktop:mb-[160px] mobile:mb-20 mobile:rounded-[30px] mobile:border-[1px] mobile:border-[#E3E3E3]'
+        />
+      </div>
       <Contacts />
     </Container>
   );

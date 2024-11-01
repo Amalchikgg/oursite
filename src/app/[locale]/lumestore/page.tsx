@@ -1,18 +1,36 @@
+"use client";
 import Contacts from "@/components/Contacts";
 import Container from "@/components/Container";
 import Tag from "@/components/Tag";
 import { eatsCase } from "@/constants/mockData";
+import { useAnimation } from "@/hooks/useAnimation";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 
 const LumeStore = () => {
   const t = useTranslations("Index");
+  const { addToRefs, headerRef, textContentRef, textRef } = useAnimation();
+
+  // Разбиваем основной текст на строки
+  const textLines = t("storeText")
+    .split(" ")
+    .map((word, i) => (
+      <div key={i} className='inline-block mr-[10px]'>
+        {word}
+      </div>
+    ));
   return (
     <Container>
-      <p className='font-bold text-[92px] text-black my-[62px] mobile:text-[48px] mobile:my-5'>
+      <p
+        ref={headerRef}
+        className='font-bold text-[92px] text-black my-[62px] mobile:text-[48px] mobile:my-5'
+      >
         Lume Store
       </p>
-      <div className='relative mb-[62px] mobile:mb-5'>
+      <div
+        ref={(el) => addToRefs(el, 0)}
+        className='relative mb-[62px] mobile:mb-5'
+      >
         <Image
           src={"/assets/icons/lumeBunner.jpg"}
           alt='eats'
@@ -35,29 +53,41 @@ const LumeStore = () => {
           className='mobile:block hidden '
         />
       </div>
-      <p className='font-medium text-[52px] tablet:text-[48px] text-[#3F3F3F] mb-[62px] mobile:mb-5 mobile:text-[24px]'>
-        {t("storeText")}
-      </p>
-      <div className='gap-5 mobile:gap-x-4 mobile:gap-y-3 flex items-center flex-wrap mb-20 mobile:mb-10'>
+      <div
+        ref={textRef}
+        className='relative font-medium text-[52px] tablet:text-[48px] mobile:text-[24px] text-[#3F3F3F] mb-[62px] mobile:mb-5'
+      >
+        <div ref={textContentRef} className='relative'>
+          {textLines}
+        </div>
+      </div>
+      <div className='tag-container gap-5 mobile:gap-x-4 mobile:gap-y-3 flex items-center flex-wrap mb-20 mobile:mb-10'>
         {eatsCase.map((data, i) => (
-          <Tag key={data.title} title={data.title} type={data.type} />
+          <div key={data.title} className='tag-item'>
+            <Tag title={data.title} type={data.type} />
+          </div>
         ))}
       </div>
-      <Image
-        src={"/assets/icons/storeCase1.jpg"}
-        alt='storeCase'
-        width={1872}
-        height={1101}
-        className='desktop:w-[1388px] mobile:hidden'
-      />
-      <Image
-        src={"/assets/icons/storeCaseMobile1.jpg"}
-        alt='storeCase'
-        width={343}
-        height={244}
-        className='hidden mobile:block'
-      />
-      <div className='flex items-center gap-5 my-5 mobile:gap-3'>
+      <div ref={(el) => addToRefs(el, 1)}>
+        <Image
+          src={"/assets/icons/storeCase1.jpg"}
+          alt='storeCase'
+          width={1872}
+          height={1101}
+          className='desktop:w-[1388px] mobile:hidden'
+        />
+        <Image
+          src={"/assets/icons/storeCaseMobile1.jpg"}
+          alt='storeCase'
+          width={343}
+          height={244}
+          className='hidden mobile:block'
+        />
+      </div>
+      <div
+        className='flex items-center gap-5 my-5 mobile:gap-3'
+        ref={(el) => addToRefs(el, 2)}
+      >
         <Image
           src={"/assets/icons/storeCase2.jpg"}
           alt='storeCase'
@@ -73,21 +103,26 @@ const LumeStore = () => {
           className='desktop:w-[686px] tablet:w-[348px] mobile:w-[163px] mobile:border-[1px] mobile:border-[#E3E3E3] mobile:rounded-[30px]'
         />
       </div>
-      <Image
-        src={"/assets/icons/storeCase4.jpg"}
-        alt='storeCase'
-        width={1872}
-        height={1101}
-        className='desktop:w-[1388px] mobile:border-[1px] mobile:border-[#E3E3E3] mobile:rounded-[30px]'
-      />
-      <Image
-        src={"/assets/icons/storeCase5.jpg"}
-        alt='storeCase'
-        width={1872}
-        height={1101}
-        className='my-5 desktop:w-[1388px] mobile:border-[1px] mobile:border-[#E3E3E3] mobile:rounded-[30px]'
-      />
-      <div className='flex items-center gap-5 mb-[170px] mobile:gap-4'>
+      <div ref={(el) => addToRefs(el, 3)}>
+        <Image
+          src={"/assets/icons/storeCase4.jpg"}
+          alt='storeCase'
+          width={1872}
+          height={1101}
+          className='desktop:w-[1388px] mobile:border-[1px] mobile:border-[#E3E3E3] mobile:rounded-[30px]'
+        />
+        <Image
+          src={"/assets/icons/storeCase5.jpg"}
+          alt='storeCase'
+          width={1872}
+          height={1101}
+          className='my-5 desktop:w-[1388px] mobile:border-[1px] mobile:border-[#E3E3E3] mobile:rounded-[30px]'
+        />
+      </div>
+      <div
+        className='flex items-center gap-5 mb-[170px] mobile:gap-4'
+        ref={(el) => addToRefs(el, 4)}
+      >
         <Image
           src={"/assets/icons/storeCase6.jpg"}
           alt='storeCase'

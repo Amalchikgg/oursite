@@ -1,18 +1,37 @@
+"use client";
 import Contacts from "@/components/Contacts";
 import Container from "@/components/Container";
 import Tag from "@/components/Tag";
 import { eatsCase } from "@/constants/mockData";
+import { useAnimation } from "@/hooks/useAnimation";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 
 const LumeEats = () => {
   const t = useTranslations("Index");
+  const { addToRefs, headerRef, textContentRef, textRef } = useAnimation();
+
+  // Разбиваем основной текст на строки
+  const textLines = t("eatsText")
+    .split(" ")
+    .map((word, i) => (
+      <div key={i} className='inline-block mr-[10px]'>
+        {word}
+      </div>
+    ));
   return (
     <Container>
-      <p className='font-bold text-[92px] text-black my-[62px] mobile:my-5 mobile:text-[48px]'>
+      <p
+        ref={headerRef}
+        className='font-bold text-[92px] text-black my-[62px] mobile:my-5 mobile:text-[48px]'
+      >
         Lume Eats
       </p>
-      <div className='relative mb-[62px] h-[616px] tablet:h-[294px] mobile:mb-5'>
+
+      <div
+        ref={(el) => addToRefs(el, 0)}
+        className='relative mb-[62px] h-[616px] tablet:h-[294px] mobile:mb-5'
+      >
         <Image
           src={"/assets/icons/eatsBunner.jpg"}
           alt='eats'
@@ -35,29 +54,45 @@ const LumeEats = () => {
           className=' hidden mobile:block'
         />
       </div>
-      <p className='font-medium text-[52px] tablet:text-[48px] mobile:text-[24px] text-[#3F3F3F] mb-[62px] mobile:mb-5'>
-        {t("eatsText")}
-      </p>
-      <div className='gap-5 mobile:gap-x-4 mobile:gap-y-3 flex items-center flex-wrap mb-20 mobile:mb-10'>
+
+      <div
+        ref={textRef}
+        className='relative font-medium text-[52px] tablet:text-[48px] mobile:text-[24px] text-[#3F3F3F] mb-[62px] mobile:mb-5'
+      >
+        <div ref={textContentRef} className='relative'>
+          {textLines}
+        </div>
+      </div>
+
+      <div className='tag-container gap-5 mobile:gap-x-4 mobile:gap-y-3 flex items-center flex-wrap mb-20 mobile:mb-10'>
         {eatsCase.map((data, i) => (
-          <Tag key={data.title} title={data.title} type={data.type} />
+          <div key={data.title} className='tag-item'>
+            <Tag title={data.title} type={data.type} />
+          </div>
         ))}
       </div>
-      <Image
-        src={"/assets/icons/eatsCase1.jpg"}
-        alt='eatsCase'
-        width={1872}
-        height={1101}
-        className='desktop:h-[835px] tablet:hidden'
-      />
-      <Image
-        src={"/assets/icons/eatsCaseTablet1.jpg"}
-        alt='eatsCase'
-        width={720}
-        height={484}
-        className='tablet:block hidden'
-      />
-      <div className='flex items-center gap-10 tablet:gap-4 my-10 mobile:my-5 mobile:gap-2'>
+
+      <div ref={(el) => addToRefs(el, 0)} className=' overflow-hidden'>
+        <Image
+          src={"/assets/icons/eatsCase1.jpg"}
+          alt='eatsCase'
+          width={1872}
+          height={1101}
+          className='desktop:h-[835px] tablet:hidden'
+        />
+        <Image
+          src={"/assets/icons/eatsCaseTablet1.jpg"}
+          alt='eatsCase'
+          width={720}
+          height={484}
+          className='tablet:block hidden'
+        />
+      </div>
+
+      <div
+        ref={(el) => addToRefs(el, 1)}
+        className='flex items-center gap-10 tablet:gap-4 my-10 mobile:my-5 mobile:gap-2 overflow-hidden'
+      >
         <Image
           src={"/assets/icons/eatsCase2.jpg"}
           alt='eatsCase'
@@ -101,27 +136,34 @@ const LumeEats = () => {
           className=' hidden mobile:block'
         />
       </div>
-      <Image
-        src={"/assets/icons/eatsCase4.jpg"}
-        alt='eatsCase'
-        width={1872}
-        height={1101}
-        className='desktop:w-[1392px] tablet:w-[720px] mobile:hidden'
-      />
-      <Image
-        src={"/assets/icons/eatsCaseMobile4.jpg"}
-        alt='eatsCase'
-        width={343}
-        height={224}
-        className='hidden mobile:block'
-      />
-      <div className='flex items-center gap-10 mobile:gap-5 mobile:mt-5 mt-10 mb-7 mobile:mb-5 tablet:flex-col'>
+
+      <div ref={(el) => addToRefs(el, 2)} className=' overflow-hidden'>
+        <Image
+          src={"/assets/icons/eatsCase4.jpg"}
+          alt='eatsCase'
+          width={1872}
+          height={1101}
+          className='desktop:w-[1392px] tablet:w-[720px] mobile:hidden'
+        />
+        <Image
+          src={"/assets/icons/eatsCaseMobile4.jpg"}
+          alt='eatsCase'
+          width={343}
+          height={224}
+          className='hidden mobile:block'
+        />
+      </div>
+
+      <div
+        ref={(el) => addToRefs(el, 3)}
+        className='flex items-center gap-10 mobile:gap-5 mobile:mt-5 mt-10 mb-7 mobile:mb-5 overflow-hidden tablet:flex-col'
+      >
         <Image
           src={"/assets/icons/eatsCase5.jpg"}
           alt='eatsCase'
           width={750}
           height={522}
-          className='desktop:w-[566px]  tablet:w-full mobile:rounded-[30px] mobile:border-[1px] mobile:border-[#E3E3E3]'
+          className='desktop:w-[566px] tablet:w-full mobile:rounded-[30px] mobile:border-[1px] mobile:border-[#E3E3E3]'
         />
         <Image
           src={"/assets/icons/eatsCase6.jpg"}
@@ -131,21 +173,28 @@ const LumeEats = () => {
           className='desktop:w-[802px] tablet:w-[720px] mobile:rounded-[30px] mobile:border-[1px] mobile:border-[#E3E3E3]'
         />
       </div>
-      <Image
-        src={"/assets/icons/eatsCase7.jpg"}
-        alt='eatsCase'
-        width={1872}
-        height={696}
-        className='desktop:h-[515px] tablet:hidden'
-      />
-      <Image
-        src={"/assets/icons/eatsCaseTablet7.jpg"}
-        alt='eatsCase'
-        width={720}
-        height={839}
-        className='hidden tablet:block mobile:rounded-[30px] mobile:border-[1px] mobile:border-[#E3E3E3]'
-      />
-      <div className='flex items-center mobile:flex-col mobile:gap-5 gap-[26px] mt-[43px] mobile:mt-5 mb-[100px] desktop:mb-[42px] mobile:mb-5'>
+
+      <div ref={(el) => addToRefs(el, 4)} className=' overflow-hidden'>
+        <Image
+          src={"/assets/icons/eatsCase7.jpg"}
+          alt='eatsCase'
+          width={1872}
+          height={696}
+          className='desktop:h-[515px] tablet:hidden'
+        />
+        <Image
+          src={"/assets/icons/eatsCaseTablet7.jpg"}
+          alt='eatsCase'
+          width={720}
+          height={839}
+          className='hidden tablet:block mobile:rounded-[30px] mobile:border-[1px] mobile:border-[#E3E3E3]'
+        />
+      </div>
+
+      <div
+        ref={(el) => addToRefs(el, 5)}
+        className='flex items-center overflow-hidden mobile:flex-col mobile:gap-5 gap-[26px] mt-[43px] mobile:mt-5 mb-[100px] desktop:mb-[42px] mobile:mb-5'
+      >
         <Image
           src={"/assets/icons/eatsCase8.jpg"}
           alt='eatsCase'
@@ -189,20 +238,24 @@ const LumeEats = () => {
           className='desktop:hidden'
         />
       </div>
-      <Image
-        src={"/assets/icons/eatsCaseDesktop10.jpg"}
-        alt='eatsCase'
-        width={1391}
-        height={703}
-        className='desktop:block hidden mb-[160px] mobile:hidden'
-      />
-      <Image
-        src={"/assets/icons/eatsCaseMobile10.jpg"}
-        alt='eatsCase'
-        width={343}
-        height={266}
-        className='hidden mobile:block mb-[116px]'
-      />
+
+      <div ref={(el) => addToRefs(el, 6)} className=' overflow-hidden'>
+        <Image
+          src={"/assets/icons/eatsCaseDesktop10.jpg"}
+          alt='eatsCase'
+          width={1391}
+          height={703}
+          className='desktop:block hidden mb-[160px] mobile:hidden'
+        />
+        <Image
+          src={"/assets/icons/eatsCaseMobile10.jpg"}
+          alt='eatsCase'
+          width={343}
+          height={266}
+          className='hidden mobile:block mb-[116px]'
+        />
+      </div>
+
       <Contacts />
     </Container>
   );

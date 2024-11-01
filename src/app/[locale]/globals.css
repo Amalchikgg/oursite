@@ -28,3 +28,13 @@ body {
 .menu.active {
   transform: translateX(0%);
 }
+
+.word-wrap {
+  overflow: hidden;
+  display: inline-block;
+}
+
+.word {
+  display: inline-block;
+  transform-origin: bottom left;
+}

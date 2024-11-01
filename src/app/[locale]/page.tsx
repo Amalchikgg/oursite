@@ -1,38 +1,96 @@
+"use client";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import Container from "@/components/Container";
 import { Link } from "@/middleware";
-import { cases, contacts, services } from "@/constants/mockData";
+import { cases, services } from "@/constants/mockData";
 import Case from "@/components/Case";
 import Service from "@/components/Service";
 import Contacts from "@/components/Contacts";
+import { useAnimation } from "@/hooks/useAnimation";
+import TextBlock from "@/components/TextBlock";
+import FormModal from "@/components/FormModal";
+import AboutUs from "@/components/AboutUs";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
   const t = useTranslations("Index");
+  const { addToRefs, headerRef } = useAnimation();
+  const containerRef = useRef<HTMLDivElement>(null);
+  const modalRef = useRef<HTMLDivElement>(null);
+  const linkRef = useRef<HTMLAnchorElement>(null);
+
+  useEffect(() => {
+    const elements = [modalRef.current, linkRef.current];
+
+    // Начальное состояние
+    gsap.set(elements, {
+      x: -100,
+      opacity: 0,
+      rotateY: -30, // Добавляем небольшой поворот
+    });
+
+    // Основная анимация появления
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: containerRef.current,
+        start: "top bottom-=100",
+        toggleActions: "play none none none",
+      },
+    });
+
+    tl.to(elements, {
+      x: 0,
+      opacity: 1,
+      rotateY: 0,
+      duration: 5,
+      stagger: 0.2,
+      ease: "power3.out",
+    });
+
+    // Hover анимация для ссылки
+    if (linkRef.current) {
+      const hoverTl = gsap.timeline({ paused: true });
+
+      hoverTl.to(linkRef.current, {
+        scale: 1.02,
+        borderColor: "#000",
+        duration: 0.3,
+        ease: "power2.out",
+      });
+
+      linkRef.current.addEventListener("mouseenter", () => hoverTl.play());
+      linkRef.current.addEventListener("mouseleave", () => hoverTl.reverse());
+    }
+
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
+  }, []);
+
   return (
     <Container>
       <main className='mt-20 mobile:mt-5'>
         <div className='flex mobile:hidden   items-end tablet:items-start tablet:flex-col justify-between mb-[79px] desktop:mb-12'>
-          <h1 className='text-black  font-medium text-[92px] desktop:text-[80px] tablet:text-[62px] tablet:mb-[46px] leading-[109.79px] w-[1240px] tablet:w-full tablet:leading-normal'>
+          <h1
+            ref={headerRef}
+            className='text-black  font-medium text-[92px] desktop:text-[80px] tablet:text-[62px] tablet:mb-[46px] leading-[109.79px] w-[1240px] tablet:w-full tablet:leading-normal'
+          >
             {t("mainTitle")}
           </h1>
-          <div className='flex items-center desktop:flex-col tablet:flex-row gap-[25px] mb-5'>
+          <div
+            ref={containerRef}
+            className='flex items-center desktop:flex-col tablet:flex-row gap-[25px] mb-5 perspective-1000'
+          >
+            <div ref={modalRef}>
+              <FormModal />
+            </div>
             <Link
-              href={"#" as never}
-              className='w-[292px] desktop:w-[330px] h-[57px] rounded-[60px] flex items-center pl-[27px] gap-2.5 border-[2px] border-[#6C6C6C]'
-            >
-              <p className='text-[24px] text-black leading-[28.64px] font-medium'>
-                {t("writeUs")}
-              </p>
-              <Image
-                src={"/assets/icons/arrow.svg"}
-                alt='arrow'
-                width={32}
-                height={1}
-                className='desktop:w-[55px]'
-              />
-            </Link>
-            <Link
+              ref={linkRef}
               href={"#" as never}
               className='w-[292px] desktop:w-[330px] h-[57px] rounded-[60px] flex items-center pl-[27px] border-[2px] border-[#6C6C6C]'
             >
@@ -42,8 +100,11 @@ export default function Home() {
             </Link>
           </div>
         </div>
-        <div className='flex tablet:flex-col items-center gap-6 tablet:gap-8 pb-[130px] mb-20 desktop:mb-[72px] tablet:mb-[49px] mobile:mb-8 border-b-[1px] tablet:border-none tablet:pb-0 border-[#CFCFCF]'>
-          <div className='relative w-[924px] tablet:w-full mobile:h-[427px] h-[770px] desktop:w-[684px] desktop:h-[704px] tablet:h-[770px] rounded-[30px]'>
+        <div
+          ref={(el) => addToRefs(el, 0)}
+          className='flex tablet:flex-col items-center gap-6 tablet:gap-8 pb-[130px] mb-20 desktop:mb-[72px] tablet:mb-[49px] mobile:mb-8 border-b-[1px] tablet:border-none tablet:pb-0 border-[#CFCFCF]'
+        >
+          <div className='relative w-[924px] hover:scale-105 transition-all duration-300 tablet:w-full mobile:h-[427px] h-[770px] desktop:w-[684px] desktop:h-[704px] tablet:h-[770px] rounded-[30px]'>
             <Image
               src={"/assets/icons/uiux.jpg"}
               alt='uiux'
@@ -55,7 +116,7 @@ export default function Home() {
               UX/UI DESIGN
             </p>
           </div>
-          <div className='relative w-[924px] h-[770px] mobile:h-[427px] tablet:w-full desktop:w-[684px] desktop:h-[704px] tablet:h-[770px] rounded-[30px]'>
+          <div className='relative w-[924px] h-[770px] hover:scale-105 transition-all duration-300 mobile:h-[427px] tablet:w-full desktop:w-[684px] desktop:h-[704px] tablet:h-[770px] rounded-[30px]'>
             <Image
               src={"/assets/icons/development.jpg"}
               alt='development'
@@ -68,17 +129,11 @@ export default function Home() {
             </p>
           </div>
         </div>
-        <p
-          id='cases'
-          className='text-black text-[64px] desktop:text-[48px] mobile:text-[28px] mobile:mb-[54px] font-medium mb-20 desktop:mb-[55px] tablet:mb-[73px]'
-        >
-          {t("weText1")}
-          <span className='font-bold'>{t("contactUs")}</span>
-          <span>{t("weText2")}</span>
-        </p>
+        <TextBlock />
         <div className='flex gap-6 mobile:gap-8 mb-[130px] desktop:mb-[92px] mobile:mb-10 tablet:flex-col'>
           {cases.map((data, i) => (
             <Case
+              index={i}
               key={data.title}
               text={data.text}
               title={data.title}
@@ -111,77 +166,7 @@ export default function Home() {
             ))}
           </div>
         </section>
-        <section id='aboutUs'>
-          <div className='flex items-center mobile:flex-col mobile:gap-[60px] mobile:items-start   tablet:items-end justify-between border-b-[1px] border-[#535353] mb-20 tablet:mb-10 desktop:mb-[59px] pb-8'>
-            <p className='text-[#1D1D1D] text-[72px] mobile:text-[48px] font-medium leading-[85.92px] tablet:leading-none'>
-              {t("aboutUs")}
-            </p>
-            <p className='text-[#C0C0C0] text-[72px] font-medium leading-[86.4px] tablet:leading-none tablet:text-[48px] mobile:text-[32px]'>
-              UX/UI designer
-            </p>
-          </div>
-          <div className='flex tablet:flex-col justify-between mb-[130px] tablet:mb-[62px]'>
-            <div className='tablet:flex tablet:flex-col-reverse tablet:gap-6 tablet:mb-6'>
-              <p className='text-[#1D1D1D] tablet:text-[40px] text-[48px] tablet:leading-none w-[760px] tablet:w-full mb-20 tablet:mb-0 font-medium leading-[57.61px]'>
-                Hello I’m Javohir — your freelance digital UX/UI and product
-                designer. Based in Tashkent, Uzbekistan.
-              </p>
-              <Image
-                src={"/assets/icons/person.jpg"}
-                alt='person'
-                width={450}
-                height={450}
-                className='tablet:hidden'
-              />
-              <Image
-                src={"/assets/icons/photoTablet.jpg"}
-                alt='person'
-                width={720}
-                height={255}
-                className='tablet:block hidden'
-              />
-            </div>
-            <p className='text-[#1D1D1D] text-[48px] desktop:text-[40px] w-[826px] tablet:w-full mb-20 tablet:mb-0 font-medium leading-[57.61px]'>
-              Lorem ipsum dolor sit amet consectetur. Hendrerit cursus
-              pellentesque lectus vivamus. Ante neque consectetur nisl mi in
-              rhoncus et posuere pellentesque. Mauris nulla sed habitant augue
-              aliquam lorem odio. Dui euismod volutpat magna egestas lectus.
-            </p>
-          </div>
-          <div className='border-b-[1px] border-[#535353] mb-20 desktop:mb-[59px] pb-8 tablet:pb-7 tablet:mb-10'>
-            <p className='text-[#C0C0C0] text-[72px] font-medium leading-[85.92px] tablet:text-[48px] tablet:leading-none'>
-              Developer
-            </p>
-          </div>
-          <div className='flex justify-between mb-[175px] tablet:mb-[73px] tablet:flex-col'>
-            <div className='tablet:flex tablet:flex-col-reverse tablet:gap-6 tablet:mb-6'>
-              <p className='text-[#1D1D1D] text-[48px] w-[760px] tablet:w-full mb-20 tablet:mb-0 font-medium leading-[57.61px]'>
-                Hello I’m Amal — your freelance digital UX/UI and product
-                designer. Based in Tashkent, Uzbekistan.
-              </p>
-              <Image
-                src={"/assets/icons/person.jpg"}
-                alt='person'
-                width={450}
-                height={450}
-                className='tablet:hidden'
-              />
-              <Image
-                src={"/assets/icons/photoTablet.jpg"}
-                alt='person'
-                width={720}
-                height={255}
-                className='tablet:block hidden'
-              />
-            </div>
-            <p className='text-[#1D1D1D] text-[48px] desktop:text-[40px] w-[826px] tablet:w-full mb-20 tablet:mb-0 font-medium leading-[57.61px]'>
-              Lorem ipsum dolor sit amet consectetur. Hendrerit cursus
-              pellentesque lectus vivamus. Ante neque consectetur nisl mi in
-              rhoncus et posuere pellentesque. Mauris nulla sed habitant augue
-              aliquam lorem odio. Dui euismod volutpat magna egestas lectus.
-            </p>
-          </div>
-        </section>
+        <AboutUs />
         <Contacts />
       </main>
     </Container>
