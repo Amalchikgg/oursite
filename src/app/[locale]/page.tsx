@@ -19,7 +19,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
   const t = useTranslations("Index");
-  const { addToRefs, headerRef } = useAnimation();
+  const { addToRefs, headerRef, textContentRef, textRef } = useAnimation();
   const containerRef = useRef<HTMLDivElement>(null);
   const modalRef = useRef<HTMLDivElement>(null);
   const linkRef = useRef<HTMLAnchorElement>(null);

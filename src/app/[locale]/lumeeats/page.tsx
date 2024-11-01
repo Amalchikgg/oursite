@@ -72,7 +72,7 @@ const LumeEats = () => {
         ))}
       </div>
 
-      <div ref={(el) => addToRefs(el, 0)} className=' overflow-hidden'>
+      <div ref={(el) => addToRefs(el, 1)} className=' overflow-hidden'>
         <Image
           src={"/assets/icons/eatsCase1.jpg"}
           alt='eatsCase'
@@ -90,7 +90,7 @@ const LumeEats = () => {
       </div>
 
       <div
-        ref={(el) => addToRefs(el, 1)}
+        ref={(el) => addToRefs(el, 2)}
         className='flex items-center gap-10 tablet:gap-4 my-10 mobile:my-5 mobile:gap-2 overflow-hidden'
       >
         <Image
@@ -137,7 +137,7 @@ const LumeEats = () => {
         />
       </div>
 
-      <div ref={(el) => addToRefs(el, 2)} className=' overflow-hidden'>
+      <div ref={(el) => addToRefs(el, 3)} className=' overflow-hidden'>
         <Image
           src={"/assets/icons/eatsCase4.jpg"}
           alt='eatsCase'
@@ -155,7 +155,7 @@ const LumeEats = () => {
       </div>
 
       <div
-        ref={(el) => addToRefs(el, 3)}
+        ref={(el) => addToRefs(el, 4)}
         className='flex items-center gap-10 mobile:gap-5 mobile:mt-5 mt-10 mb-7 mobile:mb-5 overflow-hidden tablet:flex-col'
       >
         <Image
@@ -174,7 +174,7 @@ const LumeEats = () => {
         />
       </div>
 
-      <div ref={(el) => addToRefs(el, 4)} className=' overflow-hidden'>
+      <div ref={(el) => addToRefs(el, 5)} className=' overflow-hidden'>
         <Image
           src={"/assets/icons/eatsCase7.jpg"}
           alt='eatsCase'
@@ -192,7 +192,7 @@ const LumeEats = () => {
       </div>
 
       <div
-        ref={(el) => addToRefs(el, 5)}
+        ref={(el) => addToRefs(el, 6)}
         className='flex items-center overflow-hidden mobile:flex-col mobile:gap-5 gap-[26px] mt-[43px] mobile:mt-5 mb-[100px] desktop:mb-[42px] mobile:mb-5'
       >
         <Image
@@ -239,7 +239,7 @@ const LumeEats = () => {
         />
       </div>
 
-      <div ref={(el) => addToRefs(el, 6)} className=' overflow-hidden'>
+      <div ref={(el) => addToRefs(el, 7)} className=' overflow-hidden'>
         <Image
           src={"/assets/icons/eatsCaseDesktop10.jpg"}
           alt='eatsCase'

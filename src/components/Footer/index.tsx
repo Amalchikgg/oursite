@@ -12,7 +12,7 @@ const Footer = () => {
           {t("startNow")}
         </p>
         <div className='flex items-center gap-[25px] mobile:flex-col'>
-          <FormModal className='w-[292px] h-[57px] rounded-[60px] bg-white flex items-center pl-[27px] border-[2px] border-[#6C6C6C]' />
+          <FormModal className='!w-[292px] h-[57px] rounded-[60px] bg-white flex items-center pl-[27px] border-[2px] border-[#6C6C6C]' />
           <Link
             href={"#" as never}
             className='w-[292px] h-[57px] rounded-[60px] hover:scale-[1.03] hover:border-black transition-all duration-300 bg-white flex items-center pl-[27px] border-[2px] border-[#6C6C6C]'

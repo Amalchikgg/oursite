@@ -52,7 +52,10 @@ const FormModal = ({ className }: { className?: string }) => {
         className='bg-white w-[598px] h-auto mobile:w-[335px] py-24 mobile:px-5 mobile:py-10 px-16 rounded-[16px] tablet:h-[auto] flex flex-col justify-center items-center relative outline-none' // Стили Tailwind для модалки
         overlayClassName='fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[100]'
       >
-        <div className='w-[34px] cursor-pointer transition-all duration-[350ms] h-[34px] rounded-[6px] flex items-center justify-center absolute top-5 right-5 hover:bg-[#F2F2F2] border border-[#DCDCDC]'>
+        <div
+          onClick={() => $open(false)}
+          className='w-[34px] cursor-pointer transition-all duration-[350ms] h-[34px] rounded-[6px] flex items-center justify-center absolute top-5 right-5 hover:bg-[#F2F2F2] border border-[#DCDCDC]'
+        >
           <Image
             src={"/assets/icons/close.svg"}
             alt='close'
@@ -118,7 +121,7 @@ const FormModal = ({ className }: { className?: string }) => {
             type='submit'
             className={`w-full h-12 rounded-[6px] transition-all duration-[210ms] bg-[#212121] text-white font-bold hover:bg-[#252525] active:scale-95 ${
               isLoading && "opacity-40"
-            } ${isSubmitted && "bg-[#1A6C01] hover:bg-[#1A6C01]"}`}
+            } ${isSubmitted && "!bg-[#1A6C01] hover:bg-[#1A6C01]"}`}
           >
             {isLoading
               ? "Отправка..."
