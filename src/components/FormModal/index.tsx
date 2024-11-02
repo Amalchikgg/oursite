@@ -32,7 +32,7 @@ const FormModal = ({ className }: { className?: string }) => {
   return (
     <>
       <div
-        onClick={() => $open(true)}
+        onClick={() => $open(false)}
         className={`w-[292px] desktop:w-[330px] hover:scale-[1.03] hover:border-black transition-all duration-300 cursor-pointer h-[57px] rounded-[60px] flex items-center pl-[27px] gap-2.5 border-[2px] border-[#6C6C6C] ${className}`}
       >
         <p className='text-[24px] text-black leading-[28.64px] font-medium'>
