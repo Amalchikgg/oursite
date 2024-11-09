@@ -19,6 +19,7 @@
     "eslint": "8.57.0",
     "eslint-config-next": "14.2.4",
     "gsap": "^3.12.5",
+    "lucide-react": "^0.454.0",
     "next": "14.2.4",
     "next-intl": "^3.15.0",
     "postcss": "8.4.38",
@@ -27,6 +28,7 @@
     "react-hook-form": "^7.53.1",
     "react-input-mask": "^2.0.4",
     "react-modal": "^3.16.1",
+    "swiper": "^11.1.14",
     "tailwindcss": "3.4.4",
     "typescript": "5.4.5"
   }

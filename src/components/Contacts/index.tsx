@@ -1,98 +1,63 @@
-import { contacts } from "@/constants/mockData";
+import { contacts, social } from "@/constants/mockData";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
+import { Link } from "@/middleware";
 
 const Contacts = () => {
   const t = useTranslations("Index");
-  const titleRef = useRef<HTMLParagraphElement>(null);
-  const imagesContainerRef = useRef<HTMLDivElement>(null);
-  const imagesRef = useRef<(HTMLImageElement | null)[]>([]);
+  const titleRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const blocksRefs = useRef<(HTMLAnchorElement | null)[]>([]);
 
   useEffect(() => {
-    if (!titleRef.current || !imagesContainerRef.current) return;
-
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: titleRef.current,
-        start: "top bottom-=100",
-        toggleActions: "play none none none",
-        once: true,
-      },
-    });
+    gsap.registerPlugin(ScrollTrigger);
 
     // Анимация заголовка
-    const titleText = titleRef.current.textContent || "";
-    titleRef.current.textContent = "";
-
-    const chars = titleText.split("").map((char) => {
-      const span = document.createElement("span");
-      span.textContent = char;
-      span.style.display = "inline-block";
-      span.style.opacity = "0";
-      span.style.transform = "translateY(20px)";
-      titleRef.current?.appendChild(span);
-      return span;
-    });
-
-    // Сначала делаем границу прозрачной
-    gsap.set(titleRef.current, {
-      borderBottomColor: "transparent",
-    });
-
-    // Анимируем буквы и границу
-    tl.to(chars, {
-      opacity: 1,
-      y: 0,
-      duration: 0.8,
-      stagger: 0.02,
-      ease: "power3.out",
-    }).to(
+    gsap.fromTo(
       titleRef.current,
       {
-        borderBottomColor: "#CFCFCF",
-        duration: 0.6,
-        ease: "power2.inOut",
+        y: 450,
+        opacity: 0,
       },
-      "-=0.4"
-    );
-
-    // Анимация изображений
-    gsap.set(imagesRef.current, {
-      opacity: 0,
-      y: 50,
-      scale: 0.95,
-    });
-
-    tl.to(
-      imagesRef.current,
       {
-        opacity: 1,
         y: 0,
-        scale: 1,
-        duration: 0.8,
-        stagger: 0.2,
-        ease: "power3.out",
-      },
-      "-=0.2"
+        opacity: 3,
+        duration: 1.5,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: titleRef.current,
+          // Начинаем когда верх элемента достигает нижней четверти экрана
+          start: "top 75%",
+          toggleActions: "restart none none reset",
+        },
+      }
     );
 
-    // Добавляем hover эффект для изображений
-    imagesRef.current.forEach((img) => {
-      if (!img) return;
-
-      const hoverTl = gsap.timeline({ paused: true });
-
-      hoverTl.to(img, {
-        scale: 1.05,
-        duration: 0.3,
-        ease: "power2.out",
-      });
-
-      img.addEventListener("mouseenter", () => hoverTl.play());
-      img.addEventListener("mouseleave", () => hoverTl.reverse());
+    // Анимация блоков
+    blocksRefs.current.forEach((block, index) => {
+      gsap.fromTo(
+        block,
+        {
+          y: 150,
+          opacity: 0,
+        },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 3,
+          ease: "power2.out",
+          delay: index * 0.3,
+          scrollTrigger: {
+            trigger: block,
+            // Начинаем когда верх блока достигает нижней четверти экрана
+            start: "top 75%",
+            toggleActions: "restart none none reset",
+          },
+        }
+      );
     });
 
     return () => {
@@ -100,45 +65,47 @@ const Contacts = () => {
     };
   }, []);
 
-  const addToImagesRef = (el: HTMLImageElement | null, index: number) => {
-    if (el) {
-      imagesRef.current[index] = el;
-    }
+  const setBlockRef = (el: HTMLAnchorElement | null, index: number) => {
+    blocksRefs.current[index] = el;
   };
 
   return (
     <>
-      <p
-        ref={titleRef}
+      <div
         id='contacts'
-        className='text-[#1D1D1D] border-b-[1px] mobile:mb-[48px] mobile:text-[48px] border-[#CFCFCF] pb-[52px] tablet:pb-7 tablet:mb-10 text-[72px] tablet:text-[64px] mb-[100px]'
+        className='flex items-center justify-center mb-[126px]'
+        ref={titleRef}
       >
-        {t("contacts")}
-      </p>
+        <p className='text-[#07149D] font-bold text-[24px] leading-none bg-[#C9D8FF] rounded-[6px] py-[14px] px-[46px]'>
+          КОНТАКТЫ
+        </p>
+      </div>
 
       <div
-        ref={imagesContainerRef}
-        className='flex items-center justify-between mb-20 tablet:flex-col tablet:gap-5'
+        className='flex items-center justify-between mb-20 tablet:flex-col tablet:gap-5 mobile:w-[343px]'
+        ref={containerRef}
       >
-        {contacts.map((data, i) => (
-          <div key={data.desktop}>
+        {social.map((data, i) => (
+          <Link
+            href={data.link as never}
+            key={data.src}
+            ref={(el) => setBlockRef(el, i)}
+            className='w-[367.25px] h-[291px] desktop:w-[330px] tablet:w-full border-[2px] border-[#CFCFCF] rounded-[6px] relative flex items-center justify-center'
+          >
             <Image
-              ref={(el) => addToImagesRef(el as HTMLImageElement, i * 2)}
-              src={`/assets/icons/${data.desktop}.svg`}
-              alt={data.desktop}
-              width={351}
-              height={291}
-              className='cursor-pointer desktop:w-[330px] tablet:hidden'
+              src={`/assets/icons/${data.src}.svg`}
+              alt={data.src}
+              width={80}
+              height={80}
             />
             <Image
-              ref={(el) => addToImagesRef(el as HTMLImageElement, i * 2 + 1)}
-              src={`/assets/icons/${data.tablet}.svg`}
-              alt={data.tablet}
-              width={720}
-              height={291}
-              className='cursor-pointer tablet:block hidden'
+              src={`/assets/icons/socialArrow.svg`}
+              alt={data.src}
+              width={40}
+              height={40}
+              className='absolute left-3 bottom-3'
             />
-          </div>
+          </Link>
         ))}
       </div>
     </>

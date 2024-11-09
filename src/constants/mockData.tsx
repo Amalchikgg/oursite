@@ -50,6 +50,13 @@ export const contacts = [
   { desktop: "phone", tablet: "whatsapTablet" },
 ];
 
+export const social = [
+  { src: "telegram", link: "#" },
+  { src: "instagram", link: "#" },
+  { src: "gmail", link: "#" },
+  { src: "phone", link: "#" },
+];
+
 export const eatsCase = [
   {
     title: "ui/ux design",
@@ -137,5 +144,29 @@ export const magentaCase = [
   {
     title: "React Native Navigation",
     type: "develop",
+  },
+];
+
+export const sliderCases = [
+  {
+    image: "eatsSlideCase.jpg",
+    text: "Инновационный сервис доставки еды, который предлагает новый уровень удобства как для ресторанов, так и для потребителей.",
+    logo: "eatsLogo",
+    logoClass: "w-[212px] h-[42px] mobile:w-[131px] mobile:h-[29px]",
+    link: "/lumeeats",
+  },
+  {
+    image: "storeSlide3.webp",
+    text: "Интернет-магазин, который предлагает новый уровень удобства и комфорта для покупателей.",
+    logo: "storeLogoCase",
+    logoClass: "w-[312px] h-[52px] mobile:w-[180px] mobile:h-[39px]",
+    link: "/lumestore",
+  },
+  {
+    image: "magentaSlide.webp",
+    text: "Женский такси-сервис, который предлагает безопасные и комфортные поездки для женщин.",
+    logo: "magentaLogoCase",
+    logoClass: "w-[270px] h-[60px] mobile:w-[160px] mobile:h-[40px]",
+    link: "/magenta",
   },
 ];

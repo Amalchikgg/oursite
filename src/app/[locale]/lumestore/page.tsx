@@ -29,16 +29,16 @@ const LumeStore = () => {
       </p>
       <div
         ref={(el) => addToRefs(el, 0)}
-        className='relative mb-[62px] mobile:mb-5'
+        className='relative mb-[62px] w-full h-[616px] tablet:h-[294px] mobile:mb-5'
       >
         <Image
-          src={"/assets/icons/lumeBunner.jpg"}
+          src={"/assets/images/2.webp"}
           alt='eats'
           width={1872}
           height={616}
-          className='desktop:hidden'
+          className='rounded-[6px] w-full h-full object-cover'
         />
-        <Image
+        {/* <Image
           src={"/assets/icons/lumeStoreDesktop.jpg"}
           alt='eats'
           width={1392}
@@ -51,6 +51,13 @@ const LumeStore = () => {
           width={343}
           height={285}
           className='mobile:block hidden '
+        /> */}
+        <Image
+          src={"/assets/icons/commerceLogo.svg"}
+          alt='logo'
+          width={981}
+          height={123}
+          className='absolute  tablet:w-[326px] mobile:w-[201px] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2'
         />
       </div>
       <div
@@ -93,14 +100,14 @@ const LumeStore = () => {
           alt='storeCase'
           width={924}
           height={1101}
-          className='desktop:w-[686px] tablet:w-[348px] mobile:w-[164px] mobile:border-[1px] mobile:border-[#E3E3E3] mobile:rounded-[30px]'
+          className='desktop:w-[686px] tablet:w-[348px] mobile:w-[164px] mobile:border-[1px] mobile:border-[#E3E3E3] mobile:rounded-[6px]'
         />
         <Image
           src={"/assets/icons/storeCase3.jpg"}
           alt='storeCase'
           width={928}
           height={1101}
-          className='desktop:w-[686px] tablet:w-[348px] mobile:w-[163px] mobile:border-[1px] mobile:border-[#E3E3E3] mobile:rounded-[30px]'
+          className='desktop:w-[686px] tablet:w-[348px] mobile:w-[163px] mobile:border-[1px] mobile:border-[#E3E3E3] mobile:rounded-[6px]'
         />
       </div>
       <div ref={(el) => addToRefs(el, 3)}>
@@ -109,14 +116,14 @@ const LumeStore = () => {
           alt='storeCase'
           width={1872}
           height={1101}
-          className='desktop:w-[1388px] mobile:border-[1px] mobile:border-[#E3E3E3] mobile:rounded-[30px]'
+          className='desktop:w-[1388px] mobile:border-[1px] mobile:border-[#E3E3E3] mobile:rounded-[6px]'
         />
         <Image
           src={"/assets/icons/storeCase5.jpg"}
           alt='storeCase'
           width={1872}
           height={1101}
-          className='my-5 desktop:w-[1388px] mobile:border-[1px] mobile:border-[#E3E3E3] mobile:rounded-[30px]'
+          className='my-5 desktop:w-[1388px] mobile:border-[1px] mobile:border-[#E3E3E3] mobile:rounded-[6px]'
         />
       </div>
       <div
@@ -142,7 +149,7 @@ const LumeStore = () => {
           alt='storeCase'
           width={348}
           height={449}
-          className='hidden tablet:block mobile:w-[164px] mobile:border-[1px] mobile:border-[#E3E3E3] mobile:rounded-[30px]'
+          className='hidden tablet:block mobile:w-[164px] mobile:border-[1px] mobile:border-[#E3E3E3] mobile:rounded-[6px]'
         />
         <Image
           src={"/assets/icons/storeCase7.jpg"}
@@ -156,7 +163,7 @@ const LumeStore = () => {
           alt='storeCase'
           width={566}
           height={745}
-          className='desktop:block hidden tablet:w-[340px] mobile:border-[1px] mobile:border-[#E3E3E3] mobile:rounded-[30px] mobile:w-[163px]'
+          className='desktop:block hidden tablet:w-[340px] mobile:border-[1px] mobile:border-[#E3E3E3] mobile:rounded-[6px] mobile:w-[163px]'
         />
       </div>
       <Contacts />

@@ -12,7 +12,7 @@ interface Form {
   phone: string;
 }
 
-const FormModal = ({ className }: { className?: string }) => {
+const FormModal = ({ writeUs }: { writeUs?: boolean }) => {
   const t = useTranslations("Index");
   const [open, $open] = useState(false);
   const {
@@ -31,25 +31,32 @@ const FormModal = ({ className }: { className?: string }) => {
   };
   return (
     <>
-      <div
-        onClick={() => $open(false)}
-        className={`w-[292px] desktop:w-[330px] hover:scale-[1.03] hover:border-black transition-all duration-300 cursor-pointer h-[57px] rounded-[60px] flex items-center pl-[27px] gap-2.5 border-[2px] border-[#6C6C6C] ${className}`}
-      >
-        <p className='text-[24px] text-black leading-[28.64px] font-medium'>
-          {t("writeUs")}
-        </p>
-        <Image
-          src={"/assets/icons/arrow.svg"}
-          alt='arrow'
-          width={32}
-          height={1}
-          className='desktop:w-[55px]'
-        />
-      </div>
+      {writeUs ? (
+        <button
+          onClick={() => $open(true)}
+          className='flex mobile:w-full items-center gap-2.5 pl-[27px] bg-[#212121] h-[57px] w-[292px] rounded-[6px] transition-all duration-[210ms] hover:bg-[#252525] active:scale-95'
+        >
+          <p className='font-medium text-[24px] text-white'>Написать нам</p>
+          <Image
+            src={"/assets/icons/arrowWhite.svg"}
+            alt='arrow'
+            width={32}
+            height={1}
+          />
+        </button>
+      ) : (
+        <button
+          onClick={() => $open(true)}
+          className='border-[2px] tablet:hidden bg-[#212121] text-white border-[#6C6C6C] h-[57px] w-[247px] rounded-[6px] font-medium text-[24px] transition-all duration-[210ms] hover:bg-[#252525] active:scale-95'
+        >
+          Отправить заявку
+        </button>
+      )}
+
       <Modal
         isOpen={open}
         onRequestClose={() => $open(false)}
-        className='bg-white w-[598px] h-auto mobile:w-[335px] py-24 mobile:px-5 mobile:py-10 px-16 rounded-[16px] tablet:h-[auto] flex flex-col justify-center items-center relative outline-none' // Стили Tailwind для модалки
+        className='bg-white w-[598px] h-auto mobile:w-[335px] py-24 mobile:px-5 mobile:py-10 px-16 rounded-[6px] tablet:h-[auto] flex flex-col justify-center items-center relative outline-none' // Стили Tailwind для модалки
         overlayClassName='fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[100]'
       >
         <div

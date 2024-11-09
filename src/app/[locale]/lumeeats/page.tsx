@@ -33,13 +33,13 @@ const LumeEats = () => {
         className='relative mb-[62px] h-[616px] tablet:h-[294px] mobile:mb-5'
       >
         <Image
-          src={"/assets/icons/eatsBunner.jpg"}
+          src={"/assets/images/1.webp"}
           alt='eats'
           width={1872}
           height={616}
-          className=' desktop:hidden'
+          className='rounded-[6px] w-full h-full object-cover'
         />
-        <Image
+        {/* <Image
           src={"/assets/icons/desktopLumeeats.jpg"}
           alt='eats'
           width={1872}
@@ -52,6 +52,13 @@ const LumeEats = () => {
           width={343}
           height={294}
           className=' hidden mobile:block'
+        /> */}
+        <Image
+          src={"/assets/icons/lumeEatsLogo.svg"}
+          alt='logo'
+          width={615}
+          height={136}
+          className='absolute  tablet:w-[326px] mobile:w-[201px] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2'
         />
       </div>
 
@@ -105,7 +112,7 @@ const LumeEats = () => {
           alt='eatsCase'
           width={750}
           height={1101}
-          className='tablet:block hidden mobile:w-[140px] mobile:rounded-[30px] mobile:border-[1px] mobile:border-[#E3E3E3]'
+          className='tablet:block hidden mobile:w-[140px] mobile:rounded-[6px] mobile:border-[1px] mobile:border-[#E3E3E3]'
         />
         <Image
           src={"/assets/icons/eatsCase3.jpg"}
@@ -163,14 +170,14 @@ const LumeEats = () => {
           alt='eatsCase'
           width={750}
           height={522}
-          className='desktop:w-[566px] tablet:w-full mobile:rounded-[30px] mobile:border-[1px] mobile:border-[#E3E3E3]'
+          className='desktop:w-[566px] tablet:w-full mobile:rounded-[6px] mobile:border-[1px] mobile:border-[#E3E3E3]'
         />
         <Image
           src={"/assets/icons/eatsCase6.jpg"}
           alt='eatsCase'
           width={1094}
           height={522}
-          className='desktop:w-[802px] tablet:w-[720px] mobile:rounded-[30px] mobile:border-[1px] mobile:border-[#E3E3E3]'
+          className='desktop:w-[802px] tablet:w-[720px] mobile:rounded-[6px] mobile:border-[1px] mobile:border-[#E3E3E3]'
         />
       </div>
 
@@ -187,7 +194,7 @@ const LumeEats = () => {
           alt='eatsCase'
           width={720}
           height={839}
-          className='hidden tablet:block mobile:rounded-[30px] mobile:border-[1px] mobile:border-[#E3E3E3]'
+          className='hidden tablet:block mobile:rounded-[6px] mobile:border-[1px] mobile:border-[#E3E3E3]'
         />
       </div>
 
@@ -228,7 +235,7 @@ const LumeEats = () => {
           alt='eatsCase'
           width={441}
           height={228}
-          className=' hidden tablet:block mobile:w-[343px] mobile:rounded-[30px] mobile:border-[1px] mobile:border-[#E3E3E3]'
+          className=' hidden tablet:block mobile:w-[343px] mobile:rounded-[6px] mobile:border-[1px] mobile:border-[#E3E3E3]'
         />
         <Image
           src={"/assets/icons/eatsCase10.jpg"}

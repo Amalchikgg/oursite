@@ -42,7 +42,45 @@ export default function RootLayout({
   return (
     <html lang={locale}>
       <head>
+        <meta charSet='utf-8' />
         <meta name='viewport' content='width=device-width, initial-scale=1' />
+
+        {/* Основные мета-теги */}
+        <title>Web Studio | Создание современных веб-сайтов на заказ</title>
+        <meta
+          name='description'
+          content='Разработка качественных веб-сайтов под ключ. Команда опытного дизайнера и разработчика создаст для вас уникальный проект.'
+        />
+        <meta
+          name='keywords'
+          content='веб-разработка, дизайн сайтов, создание сайтов, веб-студия, разработка под ключ, портфолио'
+        />
+
+        {/* Open Graph теги для соцсетей */}
+        <meta
+          property='og:title'
+          content='Web Studio | Создание современных веб-сайтов'
+        />
+        <meta
+          property='og:description'
+          content='Разработка качественных веб-сайтов под ключ. Команда опытного дизайнера и разработчика.'
+        />
+        <meta property='og:type' content='website' />
+        <meta property='og:image' content='/og-image.jpg' />
+        <meta property='og:url' content='https://your-domain.com' />
+
+        {/* Мета-теги для поисковых систем */}
+        <meta name='robots' content='index, follow' />
+        <meta name='author' content='Web Studio' />
+        <meta name='theme-color' content='#ffffff' />
+
+        {/* Favicon */}
+        <link rel='icon' href='/favicon.ico' />
+        <link rel='apple-touch-icon' href='/apple-touch-icon.png' />
+
+        {/* Дополнительные мета-теги */}
+        <meta name='format-detection' content='telephone=no' />
+        <meta name='copyright' content='Web Studio' />
       </head>
       <NextIntlClientProvider locale={locale} messages={messages}>
         <body className={sfPro.className}>

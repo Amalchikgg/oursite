@@ -6,7 +6,7 @@ interface Props {
 const Tag = ({ title, type }: Props) => {
   return (
     <div
-      className={`border border-[#3F3F3F] rounded-[12px] py-2.5 mobile:px-5 px-10 ${
+      className={`border border-[#3F3F3F] rounded-[6px] py-2.5 mobile:px-5 px-10 ${
         type === "develop" && "bg-black border-none"
       }`}
     >

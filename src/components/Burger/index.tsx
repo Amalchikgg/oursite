@@ -15,7 +15,7 @@ const Burger = () => {
     <>
       <button
         onClick={handleActive}
-        className='hidden tablet:flex justify-center w-[106px] h-[71px] items-center mobile:h-[45px] bg-black rounded-[60px]'
+        className='hidden tablet:flex justify-center w-[106px] h-[71px] items-center mobile:h-[45px] bg-black rounded-[6px]'
       >
         <Image
           src={"/assets/icons/burger.svg"}
@@ -37,12 +37,9 @@ const Burger = () => {
               className='mobile:w-[52px] mobile:h-[52px]'
             />
             <div className='flex items-center gap-4'>
-              <button className='border-[2px] bg-white mobile:w-[63px] mobile:h-[45px] border-[#BEBEBE] h-[57px] tablet:h-[71px] w-[99px] rounded-[60px] font-semibold text-[#000] text-[20px]'>
-                RU
-              </button>
               <button
                 onClick={handleActive}
-                className='border-[2px] bg-white flex items-center justify-center border-[#BEBEBE] h-[57px] tablet:h-[71px] mobile:w-[106px] mobile:h-[45px] w-[99px] rounded-[60px] font-semibold text-[#000] text-[20px]'
+                className='border-[2px] active:scale-95 transition-all duration-[210ms] bg-white flex items-center justify-center border-[#BEBEBE] h-[57px] tablet:h-[71px] mobile:w-[106px] mobile:h-[45px] w-[99px] rounded-[6px] font-semibold text-[#000] text-[20px]'
               >
                 <Image
                   src={"/assets/icons/close.svg"}
@@ -77,11 +74,11 @@ const Burger = () => {
               {t("cases")}
             </a>
             <a
-              href='#services'
+              href='#contacts'
               className='font-medium text-[72px] mobile:text-[32px] text-white'
               onClick={handleActive}
             >
-              {t("services")}
+              {t("contacts")}
             </a>
           </div>
         </div>

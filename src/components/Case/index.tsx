@@ -114,7 +114,7 @@ const ProjectCard = ({
     >
       <div
         ref={imageRef}
-        className='relative w-[608px] h-[425px] mb-7 desktop:w-[448px] rounded-[30px] desktop:h-[321px] tablet:w-full overflow-hidden'
+        className='relative w-[608px] h-[425px] mb-7 desktop:w-[448px] rounded-[6px] desktop:h-[321px] tablet:w-full overflow-hidden'
       >
         {/* Добавляем оверлей для hover эффекта */}
 
