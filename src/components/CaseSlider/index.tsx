@@ -10,6 +10,7 @@ import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
 const CaseSlider = () => {
   const secondSlideRef = useRef<SwiperClass>();
   const [width, $width] = useState(1920);
+  const [isInitialized, setIsInitialized] = useState(false);
 
   useEffect(() => {
     if (window.screen.width <= 768) {
@@ -25,7 +26,7 @@ const CaseSlider = () => {
       slidesPerView={width <= 768 ? 1 : 3}
       autoplay
       centeredSlides={true}
-      className='relative mb-[125px] mobile:w-full'
+      className='relative mb-[125px] mobile:w-full h-[1060px] mobile:h-[900px]'
       slideToClickedSlide={true}
     >
       {sliderCases.map((project) => (
@@ -40,9 +41,11 @@ const CaseSlider = () => {
             >
               <div className='flex flex-col items-center'>
                 <div className='relative w-[767px] desktop:w-[575px] h-[596px] mobile:w-[343px] mobile:h-[343px] rounded-lg overflow-hidden shadow-lg mb-[58px]'>
-                  <img
+                  <Image
                     src={`/assets/images/${project.image}`}
                     alt={project.logo}
+                    width={767}
+                    height={596}
                     className='w-full h-full object-cover'
                   />
                 </div>

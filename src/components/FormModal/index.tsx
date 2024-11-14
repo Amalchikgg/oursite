@@ -74,7 +74,7 @@ const FormModal = ({
             alt='arrow'
             width={32}
             height={1}
-            className='transition-all duration-150 absolute top-[26px] right-[70px] group-hover:right-6'
+            className='transition-all duration-150 mobile:w-[50px] mobile:top-6 absolute top-[26px] right-[70px] group-hover:right-6'
           />
         </button>
       )}
