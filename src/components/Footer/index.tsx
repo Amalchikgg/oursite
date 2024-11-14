@@ -9,7 +9,7 @@ const Footer = () => {
         <p className='text-black font-medium text-[86px] mobile:text-center mobile:text-[64px]'>
           {t("startNow")}
         </p>
-        <div className='flex w-full items-center gap-[25px] mobile:flex-col'>
+        <div className='flex mobile:w-full items-center gap-[25px] mobile:flex-col'>
           <FormModal writeUs />
           <Copy />
         </div>

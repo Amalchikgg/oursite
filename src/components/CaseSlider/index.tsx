@@ -21,7 +21,7 @@ const CaseSlider = () => {
     }
   }, []);
 
-  if (!isInitialized) {
+  if (!isInitialized && window.screen.width <= 768) {
     return null;
   }
 
