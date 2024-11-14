@@ -22,7 +22,7 @@ const Magenta = () => {
     <Container>
       <p
         ref={headerRef}
-        className='font-bold text-[92px] text-black my-[62px] tablet:text-[62px] mobile:text-[48px] mobile:mb-5 mobile:mt-5'
+        className='font-bold text-[92px] text-black my-[62px] tablet:text-[62px] mobile:text-[40px] mobile:mb-5 mobile:mt-5'
       >
         Magenta Highway
       </p>
@@ -87,11 +87,11 @@ const Magenta = () => {
           alt='magentaCase'
           width={720}
           height={484}
-          className='hidden tablet:block mobile:rounded-[6px] mobile:border-[1px] mobile:border-[#E3E3E3]'
+          className='hidden tablet:block mobile:rounded-[6px]'
         />
       </div>
       <div
-        className='flex items-center gap-5 my-5 mobile:gap-3'
+        className='flex items-center gap-5 my-5 mobile:gap-4'
         ref={(el) => addToRefs(el, 2)}
       >
         <Image
@@ -104,7 +104,7 @@ const Magenta = () => {
         <Image
           src={"/assets/icons/magentaCase3.jpg"}
           alt='magentaCase'
-          width={684}
+          width={928}
           height={1101}
           className='desktop:hidden'
         />
@@ -127,14 +127,14 @@ const Magenta = () => {
           alt='magentaCase'
           width={348}
           height={449}
-          className=' hidden tablet:block mobile:w-[164px] mobile:rounded-[6px] mobile:border-[1px] mobile:border-[#E3E3E3]'
+          className=' hidden tablet:block mobile:w-[164px] mobile:rounded-[6px] '
         />
         <Image
           src={"/assets/icons/magentaCaseTablet3.jpg"}
           alt='magentaCase'
           width={348}
           height={449}
-          className=' hidden tablet:block mobile:w-[164px] mobile:rounded-[6px] mobile:border-[1px] mobile:border-[#E3E3E3]'
+          className=' hidden tablet:block mobile:w-[164px] mobile:rounded-[6px]'
         />
       </div>
       <div ref={(el) => addToRefs(el, 3)}>
@@ -150,7 +150,7 @@ const Magenta = () => {
           alt='magentaCase'
           width={1392}
           height={934}
-          className='mb-10 mobile:mb-5 desktop:block hidden tablet:w-[715px] mobile:rounded-[6px] mobile:border-[1px] mobile:border-[#E3E3E3]'
+          className='mb-10 mobile:mb-5 desktop:block hidden tablet:w-[715px] mobile:rounded-[6px]'
         />
       </div>
       <div
@@ -160,14 +160,14 @@ const Magenta = () => {
         <Image
           src={"/assets/icons/magentaCase5.jpg"}
           alt='magentaCase'
-          width={928}
-          height={612}
-          className='desktop:w-[690px] tablet:w-[348px] mobile:hidden'
+          width={924}
+          height={1101}
+          className=' desktop:w-[687px] tablet:w-[348px] mobile:hidden'
         />
         <Image
           src={"/assets/icons/magentaCaseMobile5.jpg"}
           alt='magentaCase'
-          width={164}
+          width={162}
           height={260}
           className='hidden mobile:block'
         />
@@ -191,7 +191,7 @@ const Magenta = () => {
             alt='magentaCase'
             width={164}
             height={120}
-            className='mb-4 hidden mobile:block'
+            className='mb-5 hidden mobile:block'
           />
           <Image
             src={"/assets/icons/magentaCaseMobile7.jpg"}
@@ -215,7 +215,7 @@ const Magenta = () => {
           alt='magentaCase'
           width={1392}
           height={1101}
-          className='mb-[170px] hidden desktop:block desktop:mb-[160px] mobile:mb-20 mobile:rounded-[6px] mobile:border-[1px] mobile:border-[#E3E3E3]'
+          className='mb-[170px] hidden desktop:block desktop:mb-[160px] mobile:mb-20 mobile:rounded-[6px]'
         />
       </div>
       <Contacts />

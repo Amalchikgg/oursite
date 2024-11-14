@@ -9,13 +9,13 @@ const Header = () => {
   const t = useTranslations("Index");
   return (
     <header className='w-full pt-12 bg-[white] pb-12'>
-      <div className='max-w-[1920px] desktop:max-w-[1440px] bg-[white] tablet:max-w-[768px] mobile:max-w-[375px] mobile:px-4 w-full px-6 m-[0px_auto] flex items-center justify-between'>
+      <div className='max-w-[1920px] desktop:max-w-[1440px] px-6 mobile:px-4 bg-[white] tablet:max-w-[768px] mobile:max-w-[375px] w-full m-[0px_auto] flex items-center justify-between'>
         <Link href={"/"}>
           <Image
             src={"/assets/icons/logo.svg"}
             alt='logo'
-            width={73}
-            height={58}
+            width={93}
+            height={78}
             className='mobile:w-[51px]'
           />
         </Link>
@@ -33,10 +33,10 @@ const Header = () => {
             {t("cases")}
           </a>
           <a
-            href='#aboutUs'
+            href='#services'
             className='px-4 leading-none py-2 text-center font-medium text-[20px] rounded-[6px] transition-all duration-300 text-[#6B6B6B] hover:bg-[#EDEDED]  active:bg-[#E9E6DD] active:text-[#212121]'
           >
-            {t("aboutUs")}
+            {t("services")}
           </a>
           <a
             href='#contacts'

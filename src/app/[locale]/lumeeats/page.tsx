@@ -98,7 +98,7 @@ const LumeEats = () => {
 
       <div
         ref={(el) => addToRefs(el, 2)}
-        className='flex items-center gap-10 tablet:gap-4 my-10 mobile:my-5 mobile:gap-2 overflow-hidden'
+        className='flex items-center gap-10 tablet:gap-4 my-5 mobile:my-5 mobile:gap-2 overflow-hidden'
       >
         <Image
           src={"/assets/icons/eatsCase2.jpg"}
@@ -110,16 +110,16 @@ const LumeEats = () => {
         <Image
           src={"/assets/icons/eatsCaseTablet2.jpg"}
           alt='eatsCase'
-          width={750}
-          height={1101}
+          width={255}
+          height={449}
           className='tablet:block hidden mobile:w-[140px] mobile:rounded-[6px] mobile:border-[1px] mobile:border-[#E3E3E3]'
         />
         <Image
           src={"/assets/icons/eatsCase3.jpg"}
           alt='eatsCase'
-          width={255}
-          height={449}
-          className=' desktop:hidden'
+          width={1082}
+          height={1101}
+          className=' desktop:hidden flex-shrink-0'
         />
         <Image
           src={"/assets/icons/eatsCaseDesktop3.jpg"}
@@ -131,9 +131,9 @@ const LumeEats = () => {
         <Image
           src={"/assets/icons/eatsCaseTablet3.jpg"}
           alt='eatsCase'
-          width={681}
-          height={891}
-          className='tablet:block hidden mobile:hidden'
+          width={441}
+          height={449}
+          className='tablet:block hidden mobile:hidden ml-2'
         />
         <Image
           src={"/assets/icons/eatsCaseMobile3.jpg"}
@@ -163,21 +163,21 @@ const LumeEats = () => {
 
       <div
         ref={(el) => addToRefs(el, 4)}
-        className='flex items-center gap-10 mobile:gap-5 mobile:mt-5 mt-10 mb-7 mobile:mb-5 overflow-hidden tablet:flex-col'
+        className='flex items-center gap-7 mobile:gap-5 mobile:mt-5 mt-5 mb-5 mobile:mb-5 overflow-hidden tablet:flex-col'
       >
         <Image
           src={"/assets/icons/eatsCase5.jpg"}
           alt='eatsCase'
           width={750}
           height={522}
-          className='desktop:w-[566px] tablet:w-full mobile:rounded-[6px] mobile:border-[1px] mobile:border-[#E3E3E3]'
+          className='desktop:w-[566px] object-contain !h-auto desktop:h-[384px] tablet:w-full mobile:rounded-[6px] mobile:border-[1px] mobile:border-[#E3E3E3]'
         />
         <Image
           src={"/assets/icons/eatsCase6.jpg"}
           alt='eatsCase'
           width={1094}
           height={522}
-          className='desktop:w-[802px] tablet:w-[720px] mobile:rounded-[6px] mobile:border-[1px] mobile:border-[#E3E3E3]'
+          className='desktop:w-[802px] h-[522px] desktop:h-[393px] mobile:h-auto tablet:w-[720px] mobile:rounded-[6px] mobile:border-[1px] mobile:border-[#E3E3E3]'
         />
       </div>
 
@@ -200,14 +200,14 @@ const LumeEats = () => {
 
       <div
         ref={(el) => addToRefs(el, 6)}
-        className='flex items-center overflow-hidden mobile:flex-col mobile:gap-5 gap-[26px] mt-[43px] mobile:mt-5 mb-[100px] desktop:mb-[42px] mobile:mb-5'
+        className='flex items-center overflow-hidden mobile:flex-col mobile:gap-5 gap-[20px] mt-[20px] mobile:mt-5 mb-[100px] desktop:mb-[42px] mobile:mb-5'
       >
         <Image
           src={"/assets/icons/eatsCase8.jpg"}
           alt='eatsCase'
           width={413}
           height={522}
-          className='tablet:hidden'
+          className='tablet:hidden desktop:h-[522px]'
         />
         <Image
           src={"/assets/icons/eatsCaseTablet8.jpg"}

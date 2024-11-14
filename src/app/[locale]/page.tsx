@@ -15,6 +15,7 @@ import MainSlider from "@/components/MainSlider";
 import CaseSlider from "@/components/CaseSlider";
 import AboutUs from "@/components/AboutUs";
 import FormModal from "@/components/FormModal";
+import Copy from "@/components/Copy";
 
 gsap.registerPlugin(ScrollTrigger);
 function useArrayRef<T>(): [
@@ -56,7 +57,7 @@ export default function Home() {
   }, [isMounted, lettersRef]);
 
   const text =
-    "Мы - команда из Узбекистана 🇺🇿 специализрующаяся на веб-дизайне и разработке, ежедневно сочетающая инновации и креативность. Свяжитесь с нами 📝 чтобы превратить ваши идеи в запоминающиеся цифровые решения.";
+    "Мы - команда из Узбекистана специализрующаяся на веб-дизайне и разработке, ежедневно сочетающая инновации и креативность. Свяжитесь с нами чтобы превратить ваши идеи в запоминающиеся цифровые решения.";
 
   return (
     <Container>
@@ -80,17 +81,7 @@ export default function Home() {
         </p>
         <div className='flex items-center justify-center gap-8 mb-20 mobile:mb-10 mobile:gap-4 mobile:flex-col'>
           <FormModal writeUs />
-          <button className='flex mobile:w-full items-center gap-2.5 pl-[27px] border-[2px] border-[#DCDCDC] h-[57px] w-[300px] rounded-[6px] transition-all duration-[210ms] active:scale-95'>
-            <Image
-              src={"/assets/icons/copy.svg"}
-              alt='arrow'
-              width={24}
-              height={24}
-            />
-            <p className='font-medium text-[24px] text-[#212121]'>
-              Скопировать почту
-            </p>
-          </button>
+          <Copy />
         </div>
         <MainSlider />
 

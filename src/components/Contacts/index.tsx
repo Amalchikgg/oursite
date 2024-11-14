@@ -1,4 +1,4 @@
-import { contacts, social } from "@/constants/mockData";
+import { social } from "@/constants/mockData";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
@@ -19,19 +19,19 @@ const Contacts = () => {
     gsap.fromTo(
       titleRef.current,
       {
-        y: 450,
+        y: 50,
         opacity: 0,
       },
       {
         y: 0,
         opacity: 3,
-        duration: 1.5,
+        duration: 0.6,
         ease: "power2.out",
         scrollTrigger: {
           trigger: titleRef.current,
           // Начинаем когда верх элемента достигает нижней четверти экрана
-          start: "top 75%",
-          toggleActions: "restart none none reset",
+          start: "top 60%",
+          toggleActions: "play none none none",
         },
       }
     );
@@ -41,20 +41,20 @@ const Contacts = () => {
       gsap.fromTo(
         block,
         {
-          y: 150,
+          y: 70,
           opacity: 0,
         },
         {
           y: 0,
           opacity: 1,
-          duration: 3,
+          duration: 1,
           ease: "power2.out",
-          delay: index * 0.3,
+          delay: index * 0.1,
           scrollTrigger: {
             trigger: block,
             // Начинаем когда верх блока достигает нижней четверти экрана
-            start: "top 75%",
-            toggleActions: "restart none none reset",
+            start: "top 65%",
+            toggleActions: "play none none none",
           },
         }
       );
@@ -87,10 +87,11 @@ const Contacts = () => {
       >
         {social.map((data, i) => (
           <Link
+            target='_blank'
             href={data.link as never}
             key={data.src}
             ref={(el) => setBlockRef(el, i)}
-            className='w-[367.25px] h-[291px] desktop:w-[330px] tablet:w-full border-[2px] border-[#CFCFCF] rounded-[6px] relative flex items-center justify-center'
+            className='w-[367.25px] h-[291px] desktop:w-[330px] hv tablet:w-full border-[2px] border-[#CFCFCF] rounded-[6px] relative flex items-center justify-center'
           >
             <Image
               src={`/assets/icons/${data.src}.svg`}

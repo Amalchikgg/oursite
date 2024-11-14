@@ -41,7 +41,23 @@ export const cases = [
   },
 ];
 
-export const services = ["landing", "multiPages", "branding"];
+export const services = [
+  {
+    image: "landing",
+    title: "Landing page",
+    text: "Создаём эффективные лендинги для привлечения клиентов. Быстрое выполнение, адаптация под любые устройства и акцент на конверсии.",
+  },
+  {
+    image: "corparate",
+    title: "Корпоративный сайт",
+    text: "Создаём эффективные лендинги для привлечения клиентов. Быстрое выполнение, адаптация под любые устройства и акцент на конверсии.",
+  },
+  {
+    image: "shop",
+    title: "Интернет-магазин",
+    text: "Запускаем интернет-магазины с удобным интерфейсом и мощной системой управления. Лёгкий процесс покупок для ваших клиентов и гибкие настройки для вас.",
+  },
+];
 
 export const contacts = [
   { desktop: "telegram", tablet: "telegramTablet" },
@@ -51,9 +67,9 @@ export const contacts = [
 ];
 
 export const social = [
-  { src: "telegram", link: "#" },
-  { src: "instagram", link: "#" },
-  { src: "gmail", link: "#" },
+  { src: "telegram", link: "https://t.me/javaibr" },
+  { src: "instagram", link: "https://instagram.com/javaibr" },
+  { src: "gmail", link: "javohiribr@gmail.com" },
   { src: "phone", link: "#" },
 ];
 
@@ -159,7 +175,7 @@ export const sliderCases = [
     image: "storeSlide3.webp",
     text: "Интернет-магазин, который предлагает новый уровень удобства и комфорта для покупателей.",
     logo: "storeLogoCase",
-    logoClass: "w-[312px] h-[52px] mobile:w-[180px] mobile:h-[39px]",
+    logoClass: "w-[284px] h-[73px] mobile:w-[180px] mobile:h-[39px]",
     link: "/lumestore",
   },
   {

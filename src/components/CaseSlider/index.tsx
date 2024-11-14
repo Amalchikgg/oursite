@@ -52,10 +52,10 @@ const CaseSlider = () => {
                     isActive ? "opacity-100" : "opacity-0"
                   }`}
                 >
-                  <div className='flex items-center gap-[145px] mobile:gap-0 mobile:justify-between mobile:w-full'>
+                  <div className='flex items-center justify-between w-full'>
                     <button
                       onClick={() => secondSlideRef.current?.slidePrev()}
-                      className='w-[34px] transition-all duration-[210ms] flex-shrink-0 active:scale-95 h-[34px]  flex items-center justify-center border rounded-[6px] border-[#DCDCDC] '
+                      className='w-[34px] transition-all duration-[210ms] bg-white hv flex-shrink-0 active:scale-95 h-[34px]  flex items-center justify-center border rounded-[6px] border-[#DCDCDC] '
                     >
                       <Image
                         src={"/assets/icons/arrowLeft.svg"}
@@ -71,7 +71,7 @@ const CaseSlider = () => {
                     />
                     <button
                       onClick={() => secondSlideRef.current?.slideNext()}
-                      className='w-[34px] transition-all duration-[210ms] flex-shrink-0 active:scale-95 h-[34px]  flex items-center justify-center border rounded-[6px] border-[#DCDCDC] '
+                      className='w-[34px] transition-all duration-[210ms] bg-white hv flex-shrink-0 active:scale-95 h-[34px]  flex items-center justify-center border rounded-[6px] border-[#DCDCDC] '
                     >
                       <Image
                         src={"/assets/icons/arrowRight.svg"}
@@ -82,11 +82,10 @@ const CaseSlider = () => {
                     </button>
                   </div>
                   <p className='w-[573px] mobile:w-[343px] font-medium text-[#212121] text-[32px] mb-[52px] text-start leading-[40px] mt-[54px]'>
-                    Инновационный сервис доставки еды, который предлагает новый
-                    уровень удобства как для ресторанов, так и для потребителей.
+                    {project.text}
                   </p>
                   <Link href={project.link as never}>
-                    <button className='border-[2px] gap-2.5 rounded-[6px] border-[#DCDCDC] flex items-center justify-center w-[209px] h-[57px] active:scale-95 transition-all duration-[210ms]'>
+                    <button className='border-[2px] gap-2.5 hv bg-white rounded-[6px] border-[#DCDCDC] flex items-center justify-center w-[209px] h-[57px] active:scale-95 transition-all duration-[210ms]'>
                       <Image
                         src={"/assets/icons/open.svg"}
                         alt='open'

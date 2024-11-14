@@ -1,5 +1,8 @@
 import Image from "next/image";
 import { useEffect } from "react";
+import FollowingAvatar from "../FolowingAvatar";
+import { services } from "@/constants/mockData";
+import FormModal from "../FormModal";
 
 const AboutUs = () => {
   useEffect(() => {
@@ -61,59 +64,40 @@ const AboutUs = () => {
           visibility: visible;
         }
       `}</style>
-
-      <div className='flex items-center justify-center mb-[125px]'>
-        <p className='fade-in slide-up text-[#079D0C] font-bold text-[24px] leading-none bg-[#DAFFC9] rounded-[6px] py-[14px] px-[46px]'>
-          О НАС
+      <div
+        id='services'
+        className='flex fade-in slide-up items-center justify-center mb-[126px]'
+      >
+        <p className='text-[#079D0C] font-bold text-[24px] leading-none bg-[#DAFFC9] rounded-[6px] py-[14px] px-[46px]'>
+          СЕРВИСЫ
         </p>
       </div>
-
-      <div
-        id='aboutUs'
-        className='flex gap-[100px] mb-[133px] mobile:gap-[50px] tablet:flex-col'
-      >
-        <div className='flex-1'>
-          {/* Изображение */}
-          <div className='fade-in slide-left'>
-            <Image
-              src={"/assets/icons/eatsSlideCase.jpg"}
-              alt='me'
-              width={629}
-              height={549}
-              className='w-full mobile:h-[343px] rounded-[6px] object-cover mb-[54px] mobile:mb-8'
-            />
+      <div className='flex items-center justify-between mb-[130px] tablet:flex-col tablet:gap-[62px]'>
+        {services.map((data) => (
+          <div
+            key={data.title}
+            className='h-[950px] fade-in slide-up w-[450px] tablet:h-[auto] gap-10 tablet:w-[534px] mobile:w-full flex flex-col items-center justify-between'
+          >
+            <div>
+              <div className='w-[450px] tablet:w-[534px] mobile:w-full mobile:h-[343px] tablet:mb-8 h-[456px] rounded-[6px] mb-5'>
+                <Image
+                  src={`/assets/images/${data.image}.jpg`}
+                  alt='landing'
+                  width={450}
+                  height={456}
+                  className='w-full h-full object-cover rounded-[6px]'
+                />
+              </div>
+              <p className='font-medium text-[36px] leading-none mobile:text-[24px] tablet:mb-8 text-[#C0C0C0] mb-5'>
+                {data.title}
+              </p>
+              <p className='font-medium text-[32px] leading-[110%] mobile:text-[20px] text-[#212121]'>
+                {data.text}
+              </p>
+            </div>
+            <FormModal service />
           </div>
-          {/* Тексты */}
-          <p className='fade-in slide-up delay-1 text-[52px] mobile:text-[32px] font-medium text-[#C0C0C0] mb-5 leading-none'>
-            UI/UX designer
-          </p>
-          <p className='fade-in slide-up delay-2 text-[#212121] font-medium text-[40px] mobile:text-[28px]'>
-            Привет! Меня зовут Жавохир — ваш фриланс-дизайнер цифровых UI/UX и
-            продуктов. Базируюсь в Ташкенте, Узбекистан.
-          </p>
-        </div>
-
-        <div className='flex-1'>
-          {/* Изображение */}
-          <div className='fade-in slide-right delay-1'>
-            <Image
-              src={"/assets/icons/eatsSlideCase.jpg"}
-              alt='me'
-              width={629}
-              height={549}
-              className='w-full object-cover mobile:h-[343px] rounded-[6px] mb-[54px] mobile:mb-8'
-            />
-          </div>
-          {/* Тексты */}
-          <p className='fade-in slide-up delay-2 text-[52px] font-medium mobile:text-[32px] text-[#C0C0C0] mb-5 leading-none'>
-            Developer
-          </p>
-          <p className='fade-in slide-up delay-3 text-[#212121] font-medium text-[40px] mobile:text-[28px]'>
-            Привет! Меня зовут Амаль — Фрилансер-разработчик, специализируюсь на
-            веб-сайтах и мобильных приложениях. Базируюсь в Ташкенте,
-            Узбекистан.
-          </p>
-        </div>
+        ))}
       </div>
     </>
   );

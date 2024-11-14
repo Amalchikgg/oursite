@@ -7,6 +7,19 @@ const nextConfig = withNextIntl({
     }
     return config;
   },
+  async headers() {
+    return [
+      {
+        // Применяем ко всем маршрутам API
+        source: "/api/:path*",
+        headers: [
+          { key: "Access-Control-Allow-Origin", value: "*" },
+          { key: "Access-Control-Allow-Methods", value: "POST, OPTIONS" },
+          { key: "Access-Control-Allow-Headers", value: "Content-Type" },
+        ],
+      },
+    ];
+  },
   trailingSlash: true,
   reactStrictMode: false,
 });

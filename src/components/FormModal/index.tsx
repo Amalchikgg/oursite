@@ -12,29 +12,61 @@ interface Form {
   phone: string;
 }
 
-const FormModal = ({ writeUs }: { writeUs?: boolean }) => {
+const FormModal = ({
+  writeUs,
+  service,
+}: {
+  writeUs?: boolean;
+  service?: boolean;
+}) => {
   const t = useTranslations("Index");
   const [open, $open] = useState(false);
   const {
     register,
     reset,
-    formState: { errors, isLoading, isSubmitted },
+    formState: { errors, isLoading, isSubmitSuccessful },
     handleSubmit,
     control,
   } = useForm<Form>({
     mode: "onChange",
   });
 
-  const onSunmit: SubmitHandler<Form> = (data) => {
-    console.log(data);
-    reset({ phone: "", name: "" });
+  const onSunmit: SubmitHandler<Form> = async (formData) => {
+    if (!formData.name || !formData.phone) {
+      return;
+    }
+    try {
+      const response = await fetch("/api/sendToTelegram", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+      if (response.ok) {
+        reset({ phone: "", name: "" });
+      }
+    } catch (error) {
+      console.log("Произошла ошибка: " + (error as Error).message);
+    }
   };
   return (
     <>
-      {writeUs ? (
+      {!writeUs && !service && (
         <button
           onClick={() => $open(true)}
-          className='flex mobile:w-full items-center gap-2.5 pl-[27px] bg-[#212121] h-[57px] w-[292px] rounded-[6px] transition-all duration-[210ms] hover:bg-[#252525] active:scale-95'
+          className=' tablet:hidden bg-[#212121] text-white  h-[46px] w-[190px] rounded-[6px] font-medium text-[20px] transition-all duration-[210ms] hover:bg-[#252525] active:scale-95'
+        >
+          Отправить заявку
+        </button>
+      )}
+
+      {writeUs && (
+        <button
+          onClick={() => $open(true)}
+          className='flex mobile:w-full items-center relative gap-2.5 group pl-[27px] bg-[#212121] h-[57px] w-[292px] rounded-[6px] transition-all duration-[210ms] hover:bg-[#303030] active:scale-95'
         >
           <p className='font-medium text-[24px] text-white'>Написать нам</p>
           <Image
@@ -42,14 +74,23 @@ const FormModal = ({ writeUs }: { writeUs?: boolean }) => {
             alt='arrow'
             width={32}
             height={1}
+            className='transition-all duration-150 absolute top-[26px] right-[70px] group-hover:right-6'
           />
         </button>
-      ) : (
-        <button
-          onClick={() => $open(true)}
-          className='border-[2px] tablet:hidden bg-[#212121] text-white border-[#6C6C6C] h-[57px] w-[247px] rounded-[6px] font-medium text-[24px] transition-all duration-[210ms] hover:bg-[#252525] active:scale-95'
-        >
-          Отправить заявку
+      )}
+
+      {service && (
+        <button className='bg-white rounded-[6px] active:scale-95 transition-all duration-[210ms] flex hv items-center justify-center gap-5 border-[2px] border-[#DCDCDC] h-[57px] w-[187px] mobile:h-[52px] mobile:w-[171px]'>
+          <Image
+            src={`/assets/icons/serviceArrow.svg`}
+            alt={"arrow"}
+            width={15}
+            height={15}
+            className='mobile:w-[13px] mobile:h-[13px]'
+          />
+          <p className='font-medium text-[24px] mobile:text-[20px] text-[#212121]'>
+            Заказать
+          </p>
         </button>
       )}
 
@@ -113,7 +154,7 @@ const FormModal = ({ writeUs }: { writeUs?: boolean }) => {
                   value={value}
                   onChange={onChange}
                   type='tel'
-                  className=' w-full pl-3  outline-none rounded-[6px] h-12'
+                  className=' w-full pl-3  outline-none rounded-[6px] h-12 hover:bg-[#F2F2F2] transition-all duration-[350ms]'
                   placeholder='Номер телефона'
                 />
               )}
@@ -128,11 +169,11 @@ const FormModal = ({ writeUs }: { writeUs?: boolean }) => {
             type='submit'
             className={`w-full h-12 rounded-[6px] transition-all duration-[210ms] bg-[#212121] text-white font-bold hover:bg-[#252525] active:scale-95 ${
               isLoading && "opacity-40"
-            } ${isSubmitted && "!bg-[#1A6C01] hover:bg-[#1A6C01]"}`}
+            } ${isSubmitSuccessful && "!bg-[#1A6C01] hover:bg-[#1A6C01]"}`}
           >
             {isLoading
               ? "Отправка..."
-              : isSubmitted
+              : isSubmitSuccessful
               ? "Отправлено"
               : "Отправить"}
           </button>

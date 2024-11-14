@@ -1,7 +1,6 @@
 import { useTranslations } from "next-intl";
-import Image from "next/image";
 import FormModal from "../FormModal";
-
+import Copy from "../Copy";
 const Footer = () => {
   const t = useTranslations("Index");
   return (
@@ -12,17 +11,7 @@ const Footer = () => {
         </p>
         <div className='flex items-center gap-[25px] mobile:flex-col'>
           <FormModal writeUs />
-          <button className='flex items-center gap-2.5 pl-[27px] border-[2px] border-[#DCDCDC] h-[57px] w-[300px] rounded-[6px] transition-all duration-[210ms] active:scale-95'>
-            <Image
-              src={"/assets/icons/copy.svg"}
-              alt='arrow'
-              width={24}
-              height={24}
-            />
-            <p className='font-medium text-[24px] text-[#212121]'>
-              Скопировать почту
-            </p>
-          </button>
+          <Copy />
         </div>
       </div>
     </footer>

@@ -46,7 +46,7 @@ export default function RootLayout({
         <meta name='viewport' content='width=device-width, initial-scale=1' />
 
         {/* Основные мета-теги */}
-        <title>Web Studio | Создание современных веб-сайтов на заказ</title>
+        <title>JIA | Создание современных веб-сайтов на заказ</title>
         <meta
           name='description'
           content='Разработка качественных веб-сайтов под ключ. Команда опытного дизайнера и разработчика создаст для вас уникальный проект.'
@@ -59,7 +59,7 @@ export default function RootLayout({
         {/* Open Graph теги для соцсетей */}
         <meta
           property='og:title'
-          content='Web Studio | Создание современных веб-сайтов'
+          content='JIA | Создание современных веб-сайтов'
         />
         <meta
           property='og:description'
@@ -67,20 +67,20 @@ export default function RootLayout({
         />
         <meta property='og:type' content='website' />
         <meta property='og:image' content='/og-image.jpg' />
-        <meta property='og:url' content='https://your-domain.com' />
+        <meta property='og:url' content='https://jiadev.site' />
 
         {/* Мета-теги для поисковых систем */}
         <meta name='robots' content='index, follow' />
-        <meta name='author' content='Web Studio' />
+        <meta name='author' content='JIA' />
         <meta name='theme-color' content='#ffffff' />
 
         {/* Favicon */}
-        <link rel='icon' href='/favicon.ico' />
-        <link rel='apple-touch-icon' href='/apple-touch-icon.png' />
+        <link data-rh='true' rel='icon' href='/assets/images/logo.png' />
+        <link rel='apple-touch-icon' href='/assets/images/logo.png' />
 
         {/* Дополнительные мета-теги */}
         <meta name='format-detection' content='telephone=no' />
-        <meta name='copyright' content='Web Studio' />
+        <meta name='copyright' content='JIA' />
       </head>
       <NextIntlClientProvider locale={locale} messages={messages}>
         <body className={sfPro.className}>

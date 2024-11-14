@@ -60,11 +60,11 @@ const Burger = () => {
               {t("main")}
             </a>
             <a
-              href='#aboutUs'
+              href='#services'
               className='font-medium text-[72px] mobile:text-[32px] text-white'
               onClick={handleActive}
             >
-              {t("aboutUs")}
+              {t("services")}
             </a>
             <a
               href='#cases'
