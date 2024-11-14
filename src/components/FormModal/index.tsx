@@ -80,7 +80,10 @@ const FormModal = ({
       )}
 
       {service && (
-        <button className='bg-white rounded-[6px] active:scale-95 transition-all duration-[210ms] flex hv items-center justify-center gap-5 border-[2px] border-[#DCDCDC] h-[57px] w-[187px] mobile:h-[52px] mobile:w-[171px]'>
+        <button
+          onClick={() => $open(true)}
+          className='bg-white rounded-[6px] active:scale-95 transition-all duration-[210ms] flex hv items-center justify-center gap-5 border-[2px] border-[#DCDCDC] h-[57px] w-[187px] mobile:h-[52px] mobile:w-[171px]'
+        >
           <Image
             src={`/assets/icons/serviceArrow.svg`}
             alt={"arrow"}

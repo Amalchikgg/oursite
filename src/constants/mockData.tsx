@@ -69,7 +69,10 @@ export const contacts = [
 export const social = [
   { src: "telegram", link: "https://t.me/javaibr" },
   { src: "instagram", link: "https://instagram.com/javaibr" },
-  { src: "gmail", link: "javohiribr@gmail.com" },
+  {
+    src: "gmail",
+    link: "https://mail.google.com/mail/u/0/#inbox?compose=GTvVlcSDZqnbnqKdJFxntbZqZXfXBcRvRsgKWCnQxbcFRqTMRXzCqBZGzQSwQgcgFdxhVJSblxSNx",
+  },
   { src: "phone", link: "#" },
 ];
 
