@@ -20,6 +20,10 @@
   animation-delay: 0.4s;
 }
 
+body {
+  min-width: 375px;
+}
+
 @keyframes fadeInUp {
   from {
     opacity: 0;

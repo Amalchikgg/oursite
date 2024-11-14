@@ -35,15 +35,15 @@ const AboutUs = () => {
         }
 
         .fade-in.slide-up {
-          transform: translateY(50px);
+          transform: translateY(3.125rem); /* 50px */
         }
 
         .fade-in.slide-left {
-          transform: translateX(-50px);
+          transform: translateX(-3.125rem); /* -50px */
         }
 
         .fade-in.slide-right {
-          transform: translateX(50px);
+          transform: translateX(3.125rem); /* 50px */
         }
 
         .fade-in.delay-1 {
@@ -66,32 +66,32 @@ const AboutUs = () => {
       `}</style>
       <div
         id='services'
-        className='flex fade-in slide-up items-center justify-center mb-[126px]'
+        className='flex fade-in slide-up items-center justify-center mb-[7.875rem]' /* 126px */
       >
-        <p className='text-[#079D0C] font-bold text-[24px] leading-none bg-[#DAFFC9] rounded-[6px] py-[14px] px-[46px]'>
+        <p className='text-[#079D0C] font-bold text-[1.5rem] leading-none bg-[#DAFFC9] rounded-[0.375rem] py-[0.875rem] px-[2.875rem]'>
           СЕРВИСЫ
         </p>
       </div>
-      <div className='flex items-center justify-between mb-[130px] tablet:flex-col tablet:gap-[62px]'>
+      <div className='flex items-center justify-between mb-[8.125rem] tablet:flex-col tablet:gap-[3.875rem]'>
         {services.map((data) => (
           <div
             key={data.title}
-            className='h-[950px] fade-in slide-up w-[450px] tablet:h-[auto] gap-10 tablet:w-[534px] mobile:w-full flex flex-col items-center justify-between'
+            className='h-[59.375rem] fade-in slide-up w-[28.125rem] tablet:h-auto gap-[0.625rem] tablet:w-[33.375rem] mobile:w-full flex flex-col items-center justify-between'
           >
             <div>
-              <div className='w-[450px] tablet:w-[534px] mobile:w-full mobile:h-[343px] tablet:mb-8 h-[456px] rounded-[6px] mb-5'>
+              <div className='w-[28.125rem] tablet:w-[33.375rem] mobile:w-full mobile:h-[21.4375rem] tablet:mb-8 h-[28.5rem] rounded-[0.375rem] mb-5'>
                 <Image
                   src={`/assets/images/${data.image}.jpg`}
                   alt='landing'
                   width={450}
                   height={456}
-                  className='w-full h-full object-cover rounded-[6px]'
+                  className='w-full h-full object-cover rounded-[0.375rem]'
                 />
               </div>
-              <p className='font-medium text-[36px] leading-none mobile:text-[24px] tablet:mb-8 text-[#C0C0C0] mb-5'>
+              <p className='font-medium text-[2.25rem] leading-none mobile:text-[1.5rem] tablet:mb-8 text-[#C0C0C0] mb-5'>
                 {data.title}
               </p>
-              <p className='font-medium text-[32px] leading-[110%] mobile:text-[20px] text-[#212121]'>
+              <p className='font-medium text-[2rem] leading-[110%] mobile:text-[1.25rem] text-[#212121]'>
                 {data.text}
               </p>
             </div>

@@ -15,8 +15,15 @@ const CaseSlider = () => {
   useEffect(() => {
     if (window.screen.width <= 768) {
       $width(768);
+      setTimeout(() => {
+        setIsInitialized(true);
+      }, 500);
     }
   }, []);
+
+  if (!isInitialized) {
+    return null;
+  }
 
   return (
     <Swiper
@@ -24,7 +31,11 @@ const CaseSlider = () => {
       modules={[Navigation, Pagination, Autoplay]}
       spaceBetween={200}
       slidesPerView={width <= 768 ? 1 : 3}
-      autoplay
+      autoplay={{
+        delay: 5000,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: false,
+      }}
       centeredSlides={true}
       className='relative mb-[125px] mobile:w-full h-[1060px] mobile:h-[900px]'
       slideToClickedSlide={true}
