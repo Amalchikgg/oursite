@@ -25,7 +25,7 @@ const LumeStore = () => {
         ref={headerRef}
         className='font-bold text-[92px] text-black my-[62px] mobile:text-[48px] mobile:my-5'
       >
-        Commerce
+        Lume Commerce
       </p>
       <div
         ref={(el) => addToRefs(el, 0)}
@@ -38,20 +38,6 @@ const LumeStore = () => {
           height={616}
           className='rounded-[6px] w-full h-full object-cover'
         />
-        {/* <Image
-          src={"/assets/icons/lumeStoreDesktop.jpg"}
-          alt='eats'
-          width={1392}
-          height={616}
-          className='desktop:block hidden mobile:hidden'
-        />
-        <Image
-          src={"/assets/icons/storeMobileBunner.jpg"}
-          alt='eats'
-          width={343}
-          height={285}
-          className='mobile:block hidden '
-        /> */}
         <Image
           src={"/assets/icons/commerceLogo.svg"}
           alt='logo'
