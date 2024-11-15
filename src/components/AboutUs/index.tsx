@@ -76,14 +76,14 @@ const AboutUs = () => {
         {services.map((data) => (
           <div
             key={data.title}
-            className='h-[59.375rem] fade-in slide-up w-[28.125rem] tablet:h-auto gap-[0.625rem] tablet:w-[33.375rem] mobile:w-full flex flex-col items-center justify-between'
+            className='h-[54em] fade-in slide-up w-[28.125rem] tablet:h-auto gap-[0.625rem] tablet:gap-12 tablet:w-[33.375rem] mobile:w-full flex flex-col items-center justify-between'
           >
             <div>
-              <div className='w-[28.125rem] tablet:w-[33.375rem] mobile:w-full mobile:h-[21.4375rem] tablet:mb-8 h-[28.5rem] rounded-[0.375rem] mb-5'>
+              <div className='w-[28rem] tablet:w-[33.375rem] mobile:w-full mobile:h-[21.4375rem] tablet:mb-8 h-[28.5rem] rounded-[0.375rem] mb-10'>
                 <Image
                   src={`/assets/images/${data.image}.jpg`}
                   alt='landing'
-                  width={450}
+                  width={448}
                   height={456}
                   className='w-full h-full object-cover rounded-[0.375rem]'
                 />
@@ -91,7 +91,7 @@ const AboutUs = () => {
               <p className='font-medium text-[2.25rem] leading-none mobile:text-[1.5rem] tablet:mb-8 text-[#C0C0C0] mb-5'>
                 {data.title}
               </p>
-              <p className='font-medium text-[2rem] leading-[110%] mobile:text-[1.25rem] text-[#212121]'>
+              <p className='font-medium text-[1.5rem] w-[95%] leading-[110%] mobile:text-[1.25rem] text-[#212121]'>
                 {data.text}
               </p>
             </div>

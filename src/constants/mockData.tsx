@@ -70,8 +70,8 @@ export const social = [
   { src: "telegram", link: "https://t.me/javaibr" },
   { src: "instagram", link: "https://instagram.com/javaibr" },
   {
-    src: "gmail",
-    link: "https://mail.google.com/mail/u/0/#inbox?compose=GTvVlcSDZqnbnqKdJFxntbZqZXfXBcRvRsgKWCnQxbcFRqTMRXzCqBZGzQSwQgcgFdxhVJSblxSNx",
+    src: "whatsapp",
+    link: "https://wa.me/+998938123060",
   },
   { src: "phone", link: "#" },
 ];

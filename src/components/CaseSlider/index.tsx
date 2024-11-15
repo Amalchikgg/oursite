@@ -41,13 +41,16 @@ const CaseSlider = () => {
       slideToClickedSlide={true}
     >
       {sliderCases.map((project) => (
-        <SwiperSlide key={project.image}>
+        <SwiperSlide
+          key={project.image}
+          className='!flex items-center justify-center overflow-visible'
+        >
           {({ isActive }) => (
             <div
               className={`transition-all duration-300  ${
                 isActive
                   ? "scale-100 opacity-100 z-[10]"
-                  : "scale-[0.85] mt-[-25px] opacity-20 tablet:opacity-0"
+                  : "scale-[0.85] mt-[-25px] opacity-20 tablet:opacity-0 z-[-10]"
               }`}
             >
               <div className='flex flex-col items-center'>

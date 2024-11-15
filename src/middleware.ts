@@ -13,7 +13,7 @@ export default createMiddleware({
   locales,
 
   // Used when no locale matches
-  defaultLocale: "en",
+  defaultLocale: "ru",
   localeDetection: true,
   localePrefix,
 });
@@ -23,8 +23,9 @@ export const config = {
   matcher: ["/", "/(ru|en)/:path*"],
 };
 
-export const { Link, redirect, usePathname, useRouter } = createLocalizedPathnamesNavigation({
-  locales,
-  localePrefix,
-  pathnames,
-});
+export const { Link, redirect, usePathname, useRouter } =
+  createLocalizedPathnamesNavigation({
+    locales,
+    localePrefix,
+    pathnames,
+  });
