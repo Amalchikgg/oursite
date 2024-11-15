@@ -82,7 +82,7 @@ const Contacts = () => {
       </div>
 
       <div
-        className='flex items-center justify-between mb-20 tablet:flex-col tablet:gap-5 mobile:w-[343px]'
+        className='flex items-center justify-between mb-20 tablet:flex-col tablet:gap-5'
         ref={containerRef}
       >
         {social.map((data, i) => (
@@ -91,7 +91,7 @@ const Contacts = () => {
             href={data.link as never}
             key={data.src}
             ref={(el) => setBlockRef(el, i)}
-            className='w-[367.25px] h-[291px] desktop:w-[330px] hv tablet:w-full border-[2px] border-[#CFCFCF] rounded-[6px] relative flex items-center justify-center'
+            className='w-[367.25px] h-[291px] desktop:w-[330px] hv tablet:w-full mobile:max-w-full border-[2px] border-[#CFCFCF] rounded-[6px] relative flex items-center justify-center'
           >
             <Image
               src={`/assets/icons/${data.src}.svg`}

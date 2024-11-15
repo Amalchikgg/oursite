@@ -72,7 +72,7 @@ export default function Home() {
             </p>
           </div>
         </div>
-        <p className='text-[110px]  fade-in-up delay-1 tablet:text-[64px] mobile:text-[40px] mobile:leading-[45px] tablet:font-medium tablet:leading-[80px] text-[#212121] text-center tracking-[-3px] leading-[120px] mb-8'>
+        <p className='text-[110px]  fade-in-up delay-1 tablet:text-[64px] mobile:text-[2.5rem] mobile:leading-[2.8rem] mobile:max-w-full break-words tablet:font-medium tablet:leading-[80px] text-[#212121] text-center tracking-[-3px] leading-[120px] mb-8'>
           Воплощаем идеи в стильные и{" "}
           <span className='font-medium italic tablet:font-semibold'>
             функциональные
@@ -88,7 +88,7 @@ export default function Home() {
         <div className='w-full h-[1px] bg-[#EAEAEA] mb-[82px]' />
 
         {isMounted && (
-          <div ref={triggerRef} className='mb-[82px] mobile:mb-10'>
+          <div ref={triggerRef} className='mb-[82px] mobile:mb-10 break-words'>
             {text.split("").map((letter, index) => (
               <span
                 key={index}
